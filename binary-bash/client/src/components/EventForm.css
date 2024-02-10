@@ -1,0 +1,31 @@
+form {
+    border: 1px solid;
+    margin: 5% auto;
+    width: 60%;
+    height: 80vh;
+
+
+}
+
+label, input, textarea {
+    color: #EAE7FA;
+    width: 50%;
+    font-size: 16px;
+    display: block;
+    margin: 0.5rem auto;
+    border: none;
+}
+
+input, textarea {
+    background-color: #838BC2;
+}
+
+::placeholder {
+    color: #EAE7FA;
+}
+
+input[type="submit"] {
+    background-color: #A58CB3;
+    width: 200px;
+    line-height: 30px;
+}

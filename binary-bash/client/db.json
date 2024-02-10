@@ -4,6 +4,7 @@
       "id": 1,
       "title": "Housewarming party",
       "image": "https://i.pinimg.com/236x/d8/57/8a/d8578a7c90c9944169a16241ca3920d5.jpg",
+      "location": "My house",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "date_time": "January 2"
     },
@@ -11,46 +12,63 @@
       "id": 2,
       "title": "Birthday party",
       "image": "https://images.ctfassets.net/sfnkq8lmu5d7/5s1kya8JDQapExFKfM8ahI/20f07aaace35649eefb27022a2f13556/2021_0517-catGotchaDay-AdobeStock_235571404.jpg?w=1000&h=750&fl=progressive&q=70&fm=jpg",
+      "location": "My house",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "date_time": "February 3"
+    },
+    {
+      "title": "My party",
+      "image": "https://media.istockphoto.com/id/955853964/photo/cut-siamese-party-cat-wearing-birthday-hat.jpg?s=1024x1024&w=is&k=20&c=zmfZlyvnnKXfXG8A0fEqc8fnUh6Wig6E8Hpln7TnSEw=",
+      "location": "My house",
+      "description": "Test",
+      "date_time": "2024-02-10T14:44",
+      "id": 3
     }
   ],
   "users": [
-      {"id": 1, "username": "miguelvasquez"},
-      {"id": 2, "username": "brunorossi"},
-      {"id": 3, "username": "bencavins"}
+    {
+      "id": 1,
+      "username": "miguelvasquez"
+    },
+    {
+      "id": 2,
+      "username": "brunorossi"
+    },
+    {
+      "id": 3,
+      "username": "bencavins"
+    }
   ],
   "event_users": [
-      {
-          "event_id": 1,
-          "user_id": 1,
-          "type": "host"
-      },
-      {
-          "event_id": 1,
-          "user_id": 2,
-          "type": "guest"
-      },
-      {
-          "event_id": 1,
-          "user_id": 3,
-          "type": "guest"
-      },
-      {
-          "event_id": 2,
-          "user_id": 1,
-          "type": "guest"
-      },
-      {
-          "event_id": 2,
-          "user_id": 2,
-          "type": "host"
-      },
-
-      {
-          "event_id": 2,
-          "user_id": 3,
-          "type": "guest"
-      }
-  ]  
+    {
+      "event_id": 1,
+      "user_id": 1,
+      "type": "host"
+    },
+    {
+      "event_id": 1,
+      "user_id": 2,
+      "type": "guest"
+    },
+    {
+      "event_id": 1,
+      "user_id": 3,
+      "type": "guest"
+    },
+    {
+      "event_id": 2,
+      "user_id": 1,
+      "type": "guest"
+    },
+    {
+      "event_id": 2,
+      "user_id": 2,
+      "type": "host"
+    },
+    {
+      "event_id": 2,
+      "user_id": 3,
+      "type": "guest"
+    }
+  ]
 }
