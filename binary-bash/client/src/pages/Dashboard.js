@@ -13,21 +13,33 @@ function Dashboard() {
         .then(events => setEvents(events))
     }, [])
 
-    return (
-        <div class="dashboard">
-            <div class="dashboard-info">
-                <h1>Upcoming Events</h1>
-                <h2>You have {events.length} events.</h2>
-                <Link to="/create-event/">Create a new event</Link>
+    if (events.length === 0) {
+        return (
+            <div class="dashboard">
+                <div class="dashboard-info">
+                    <h1>Upcoming Events</h1>
+                    <h2>You don't have any events.</h2>
+                    <Link to="/create-event/">Create a new event</Link>
+                </div>
             </div>
-            <div class="event-cards">
-                {events.map(event => 
-                        <EventCard key={event.id} event={event} />
-                )}
+        )
+    } else {
+        return (
+            <div class="dashboard">
+                <div class="dashboard-info">
+                    <h1>Upcoming Events</h1>
+                    <h2>You have {events.length} events.</h2>
+                    <Link to="/create-event/">Create a new event</Link>
+                </div>
+                <div class="event-cards">
+                    {events.map(event => 
+                            <EventCard key={event.id} event={event} />
+                    )}
+                </div>
+                
             </div>
-            
-        </div>
-      );
+          );
+    }
 };
 
 export default Dashboard;

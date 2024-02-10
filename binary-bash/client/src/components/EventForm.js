@@ -1,6 +1,7 @@
 import "./EventForm.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EventForm() {
 
@@ -11,6 +12,8 @@ function EventForm() {
     const [ eventEndTime, setEventEndTime ] = useState("")
     const [ eventDescription, setEventDescription ] = useState("")
     const [ eventLocation, setEventLocation ] = useState("")
+
+    const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -40,6 +43,8 @@ function EventForm() {
             setEventDate("");
             setEventLocation("");
             setEventDescription("");
+
+            navigate('/dashboard');
         })
     }
 
@@ -53,7 +58,8 @@ function EventForm() {
                     name="new-event-title"
                     placeholder="What's your event title?"
                     onChange={event => {setEventTitle(event.target.value)}}
-                    value={eventTitle}>
+                    value={eventTitle}
+                    required>
                 </input>
                 <label for="new-event-image">Upload an image:</label>
                 <input 
@@ -68,21 +74,24 @@ function EventForm() {
                     name="new-event-date"
                     type="date"
                     onChange={event => {setEventDate(event.target.value)}}
-                    value={eventDate}>
+                    value={eventDate}
+                    required>
                 </input>
                 <input
                     class="new-event-inputs"
                     name="new-event-start"
                     type="time"
                     onChange={event => {setEventStartTime(event.target.value)}}
-                    value={eventStartTime}>
+                    value={eventStartTime}
+                    required>
                 </input>
                 <input
                     class="new-event-inputs"
                     name="new-event-end"
                     type="time"
                     onChange={event => {setEventEndTime(event.target.value)}}
-                    value={eventEndTime}>
+                    value={eventEndTime}
+                    required>
                 </input>
                 {/* <label for="new-event-date"></label> */}
                 <input
