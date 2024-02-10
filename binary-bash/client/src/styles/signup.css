@@ -7,23 +7,24 @@
   align-items: center;
 }
 .form-container {
-  height: 600px;
+  height: max-content;
   width: 500px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 25px;
   text-align: center;
   padding: 20px 30px;
 }
 #username-textfield,
 #password-textfield {
   display: flex;
-  margin: 5px 0;
+  justify-content: center;
+  margin: 10px 0;
   border-radius: 10px;
   border: none;
   background-color: #A58CB3;
   height: 30px;
   color: #EAE7FA;
-  width: 100%;
+  width: 50%;
   margin-top: 20px;
 }
 #submit-btn {

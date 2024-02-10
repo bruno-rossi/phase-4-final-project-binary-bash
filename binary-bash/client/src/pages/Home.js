@@ -5,7 +5,8 @@ function Home() {
 
     return (
         <div className="home-page">
-            <h1>binaryBash</h1>
+            <div className="home-container">
+              <h1>binaryBash</h1>
             <div className="button-group">
                 <NavLink to='/login'><button>Login</button></NavLink>
                 <NavLink to='/signup'><button>Signup</button></NavLink>
@@ -26,7 +27,9 @@ function Home() {
                 </p>
             </div>
 
-            <NavLink to="/login"><button className="get-started-btn">Get started</button></NavLink>
+            <NavLink to="/login"><button className="get-started-btn">Get Started!</button></NavLink>  
+            </div>
+            
         </div>
       ); 
 };
