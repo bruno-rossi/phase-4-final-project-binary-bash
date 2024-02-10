@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   background: linear-gradient(90deg, rgba(118, 127, 187) 0%, rgb(138, 110, 155) 80%);
-  /* linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%); */
   display: flex;
   align-items: center;
 }
