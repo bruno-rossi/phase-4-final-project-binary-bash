@@ -1,10 +1,11 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import '../styles/home.css'
 
 function Home() {
 
     return (
-        <div className="home-page">
+        <>
+         <div className="home-page">
             <div className="home-container">
               <h1>binaryBash</h1>
             <div className="button-group">
@@ -31,6 +32,8 @@ function Home() {
             </div>
             
         </div>
+        </>
+       
       ); 
 };
 

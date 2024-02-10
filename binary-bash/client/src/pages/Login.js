@@ -6,7 +6,7 @@ function Login() {
     <div className="login-container">
       <div className='form-container'>
         <h1>Log In</h1>
-        <form>
+        <form className="login-form">
           <label htmlFor = 'username'>Username:</label>
           <input type ='text' name='username' id='username-textfield' required/>
           <label htmlFor = 'password'>Password:</label>
