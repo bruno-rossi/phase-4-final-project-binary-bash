@@ -29,6 +29,26 @@
       "start_time": "12:00pm",
       "end_time": "12:30pm",
       "id": 3
+    },
+    {
+      "title": "Final project demos",
+      "image": "",
+      "location": "Flatiron School",
+      "description": "Come watch the Final project demos for phase 4.",
+      "date": "2024-02-16",
+      "start_time": "10:00",
+      "end_time": "11:00",
+      "id": 4
+    },
+    {
+      "title": "sadfs",
+      "image": "",
+      "location": "sdffa",
+      "description": "dfadfsa",
+      "date": "2024-02-10",
+      "start_time": "16:21",
+      "end_time": "16:22",
+      "id": 5
     }
   ],
   "users": [
