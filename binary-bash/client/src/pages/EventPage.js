@@ -1,4 +1,4 @@
-import "./EventPage.css"
+import "../styles/EventPage.css"
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./EventCard.css";
+import "../styles/EventCard.css";
 
 function EventCard({event}) {
 
