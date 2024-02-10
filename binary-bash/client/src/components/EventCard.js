@@ -9,7 +9,7 @@ function EventCard({event}) {
             <img src={event.image} />
             <p>{event.date}</p>
             <p>{event.start_time} - {event.end_time}</p>
-            <Link to={`/events/${event.id}`} >Event details</Link>
+            <Link to={`/events/${event.id}`} >Details</Link>
         </div>
     )
 };
