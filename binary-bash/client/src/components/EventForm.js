@@ -39,13 +39,15 @@ function EventForm() {
         .then(res => res.json())
         // .then(data => setStores([...stores, data]))
         .then(() => {
-            setEventTitle("");
-            setEventDate("");
-            setEventLocation("");
-            setEventDescription("");
+            event.target.reset()
 
             navigate('/dashboard');
         })
+    }
+
+    function validate_time() {
+        const start_date_time = eventDate + eventStartTime
+        
     }
 
     return (
@@ -66,7 +68,9 @@ function EventForm() {
                     type="file"
                     class="new-event-inputs"
                     name="new-event-image"
-                    accept="image/png, image/jpeg">
+                    accept="image/png, image/jpeg"
+                    onChange={event => {setEventImage(event.target.value)}}
+                    value={eventImage}>
                 </input>
                 {/* <label for="new-event-date">When is your event?</label> */}
                 <input
@@ -80,7 +84,8 @@ function EventForm() {
                 <input
                     class="new-event-inputs"
                     name="new-event-start"
-                    type="time"
+                    type="datetime-local"
+                    step={60}
                     onChange={event => {setEventStartTime(event.target.value)}}
                     value={eventStartTime}
                     required>
@@ -88,9 +93,11 @@ function EventForm() {
                 <input
                     class="new-event-inputs"
                     name="new-event-end"
-                    type="time"
+                    type="datetime-local"
+                    step={60}
                     onChange={event => {setEventEndTime(event.target.value)}}
                     value={eventEndTime}
+                    min={eventStartTime}
                     required>
                 </input>
                 {/* <label for="new-event-date"></label> */}

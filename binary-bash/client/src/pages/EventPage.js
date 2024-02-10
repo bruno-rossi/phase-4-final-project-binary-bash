@@ -17,12 +17,12 @@ function EventPage() {
     console.log(event)
 
     return (
-        <div>
+        <div class="event-page-container">
             <h1>{event.title}</h1>
-            <img src={event.image} />
+            <img class="event-page-image" src={event.image} />
             <h2>{event.date}</h2>
-            <h3>{event.start_time} - {event.end_time}</h3>
-            <h3>{event.location}</h3>
+            <h3>Time: {event.start_time} - {event.end_time}</h3>
+            <h3>Where: {event.location}</h3>
             <p>{event.description}</p>
         </div>
     )

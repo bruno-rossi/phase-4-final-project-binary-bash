@@ -1,4 +1,8 @@
-img {
-    width: 20%;
-    height: 20%;
+.event-page-container {
+    background-color: rgb(131,139,194);;
+}
+
+.event-page-image {
+    width: 200px;
+    height: 200px;
 }
