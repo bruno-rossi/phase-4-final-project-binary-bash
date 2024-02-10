@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import "./Dashboard.css"
+import { Link } from "react-router-dom";
 
 function Dashboard() {
 
@@ -14,9 +15,15 @@ function Dashboard() {
 
     return (
         <div class="dashboard">
-            <h1>Upcoming Events</h1>
+            <div class="dashboard-info">
+                <h1>Upcoming Events</h1>
+                <h2>You have {events.length} events.</h2>
+                <Link to="/create-event/">Create a new event</Link>
+            </div>
             <div class="event-cards">
-                {events.map(event => <EventCard key={event.id} event={event} />)}
+                {events.map(event => 
+                        <EventCard key={event.id} event={event} />
+                )}
             </div>
             
         </div>

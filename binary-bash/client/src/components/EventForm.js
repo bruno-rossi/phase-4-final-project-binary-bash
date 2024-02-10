@@ -1,13 +1,16 @@
 import "./EventForm.css"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function EventForm() {
 
     const [ eventTitle, setEventTitle ] = useState("")
     const [ eventImage, setEventImage ] = useState("")
     const [ eventDate, setEventDate ] = useState("")
-    const [ eventLocation, setEventLocation ] = useState("")
+    const [ eventStartTime, setEventStartTime ] = useState("")
+    const [ eventEndTime, setEventEndTime ] = useState("")
     const [ eventDescription, setEventDescription ] = useState("")
+    const [ eventLocation, setEventLocation ] = useState("")
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -17,7 +20,9 @@ function EventForm() {
             image: eventImage,
             location: eventLocation,
             description: eventDescription,
-            date_time: eventDate
+            date: eventDate,
+            start_time: eventStartTime,
+            end_time: eventEndTime
         }
 
         fetch("http://localhost:3000/events", {
@@ -40,7 +45,8 @@ function EventForm() {
 
     return (
         <div>
-            <form id="create-event-form" onSubmit={handleSubmit}>
+            <Link to="/dashboard">x</Link>
+            <form class="create-event-form" onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     class="new-event-inputs"
@@ -60,9 +66,23 @@ function EventForm() {
                 <input
                     class="new-event-inputs"
                     name="new-event-date"
-                    type="datetime-local"
+                    type="date"
                     onChange={event => {setEventDate(event.target.value)}}
                     value={eventDate}>
+                </input>
+                <input
+                    class="new-event-inputs"
+                    name="new-event-start"
+                    type="time"
+                    onChange={event => {setEventStartTime(event.target.value)}}
+                    value={eventStartTime}>
+                </input>
+                <input
+                    class="new-event-inputs"
+                    name="new-event-end"
+                    type="time"
+                    onChange={event => {setEventEndTime(event.target.value)}}
+                    value={eventEndTime}>
                 </input>
                 {/* <label for="new-event-date"></label> */}
                 <input

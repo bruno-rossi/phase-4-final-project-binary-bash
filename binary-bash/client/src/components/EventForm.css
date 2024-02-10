@@ -1,13 +1,11 @@
-form {
-    border: 1px solid;
+.create-event-form {
+    /* border: 1px solid; */
     margin: 5% auto;
     width: 60%;
     height: 80vh;
-
-
 }
 
-label, input, textarea {
+.create-event-form label, input, textarea {
     color: #EAE7FA;
     width: 50%;
     font-size: 16px;
@@ -16,7 +14,7 @@ label, input, textarea {
     border: none;
 }
 
-input, textarea {
+.create-event-form input, textarea {
     background-color: #838BC2;
 }
 
@@ -24,7 +22,7 @@ input, textarea {
     color: #EAE7FA;
 }
 
-input[type="submit"] {
+.create-event-form input[type="submit"] {
     background-color: #A58CB3;
     width: 200px;
     line-height: 30px;

@@ -33,7 +33,7 @@ const routes = [
                 element: <CreateEvent />
             },
             {
-                path: '/event/',
+                path: '/events/:id',
                 element: <EventPage />
             }
         ]
