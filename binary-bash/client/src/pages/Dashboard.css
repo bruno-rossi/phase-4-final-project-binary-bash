@@ -5,4 +5,15 @@
     flex-wrap: wrap;
     gap: 10px 10px;
     margin: 0 auto;
+    border: 1px solid;
+}
+
+.dashboard-info a {
+    color: #EAE7FA;
+    display: block;
+    text-decoration: none;
+    background-color: #838BC2;
+    max-width: 10%;
+    padding: 10px;
+    margin: 2% auto;
 }
