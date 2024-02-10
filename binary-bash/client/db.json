@@ -96,5 +96,19 @@
       "user_id": 3,
       "type": "guest"
     }
+  ],
+  "new_user": [
+    {
+      "username": "Test",
+      "password": "Tester",
+      "confimedPass": "Tester",
+      "id": 1
+    },
+    {
+      "username": "MiguelV",
+      "password": "thisisatest",
+      "confimedPass": "thisisatest",
+      "id": 2
+    }
   ]
 }
