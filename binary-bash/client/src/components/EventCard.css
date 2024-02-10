@@ -1,0 +1,26 @@
+.event-card {
+    width: 250px;
+    height: 250px;
+    /* background-color: #A58CB3; */
+    padding: 1%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid;
+}
+
+.event-card img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
+}
+
+.event-card a {
+    color: #EAE7FA;
+    text-decoration: none;
+    background-color: #838BC2;
+    padding: 2%;
+    margin: 0 auto;
+    vertical-align: middle;
+}
