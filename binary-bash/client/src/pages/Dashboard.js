@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import "./Dashboard.css"
+import "../styles/Dashboard.css"
 import { Link } from "react-router-dom";
 
 function Dashboard() {
