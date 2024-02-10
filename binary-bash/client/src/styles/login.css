@@ -50,7 +50,7 @@
 }
 hr {
   background-color: black;
-  margin: 30px auto; /* Sets left and right margins to 'auto', centering the element */
+  margin: 30px auto; 
   width: 50%;
 }
 .terms-conditions {
