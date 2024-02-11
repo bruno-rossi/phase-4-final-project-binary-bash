@@ -1,0 +1,15 @@
+.footer-container {
+  background-color: rgb(101, 110, 133);
+}
+.footer-container h1 {
+  margin: 0 auto;
+  padding: 20px 0;
+  color: white;
+}
+.footer-list {
+  margin: 0;
+  padding: 10px;
+}
+.footer-list li{
+  display: inline-block;
+}
