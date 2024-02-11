@@ -1,15 +1,17 @@
 .footer-container {
-  background-color: rgb(101, 110, 133);
+  background-color: rgb(140, 113, 161);
 }
-.footer-container h1 {
-  margin: 0 auto;
-  padding: 20px 0;
-  color: white;
+.footer-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
 }
-.footer-list {
-  margin: 0;
-  padding: 10px;
+.footer-items a:hover {
+  text-decoration: underline;
+  color: purple;
+  cursor: pointer;
 }
-.footer-list li{
-  display: inline-block;
+.footer-copyright {
+  font-style: italic;
 }
