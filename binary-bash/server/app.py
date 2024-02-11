@@ -3,6 +3,7 @@
 from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
 from models import db, User, Event, EventUser
+from flask_cors import CORS
 import os
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -10,6 +11,7 @@ DATABASE = os.environ.get(
     "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
@@ -24,7 +26,7 @@ def index():
 
 @app.route('/events')
 def all_events():
-    events_list = [event.to_dict() for event in Event.query.all()]
+    events_list = [event.to_dict(rules=['-users.event']) for event in Event.query.all()]
 
     return events_list, 200
 

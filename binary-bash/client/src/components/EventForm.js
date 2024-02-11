@@ -7,7 +7,6 @@ function EventForm() {
 
     const [ eventTitle, setEventTitle ] = useState("")
     const [ eventImage, setEventImage ] = useState("")
-    const [ eventDate, setEventDate ] = useState("")
     const [ eventStartTime, setEventStartTime ] = useState("")
     const [ eventEndTime, setEventEndTime ] = useState("")
     const [ eventDescription, setEventDescription ] = useState("")
@@ -23,12 +22,11 @@ function EventForm() {
             image: eventImage,
             location: eventLocation,
             description: eventDescription,
-            date: eventDate,
             start_time: eventStartTime,
             end_time: eventEndTime
         }
 
-        fetch("http://localhost:3000/events", {
+        fetch("http://localhost:5555/events", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
@@ -43,11 +41,6 @@ function EventForm() {
 
             navigate('/dashboard');
         })
-    }
-
-    function validate_time() {
-        const start_date_time = eventDate + eventStartTime
-        
     }
 
     return (
@@ -73,14 +66,6 @@ function EventForm() {
                     value={eventImage}>
                 </input>
                 {/* <label for="new-event-date">When is your event?</label> */}
-                <input
-                    class="new-event-inputs"
-                    name="new-event-date"
-                    type="date"
-                    onChange={event => {setEventDate(event.target.value)}}
-                    value={eventDate}
-                    required>
-                </input>
                 <input
                     class="new-event-inputs"
                     name="new-event-start"
