@@ -48,7 +48,7 @@ function Signup() {
 
         <form className='signup-form' onSubmit={handleSubmit}>
 
-          <label htmlFor = 'username'>Username:</label>
+          <label htmlFor = 'username'>* Username:</label>
           <input 
           type ='text' 
           name='username' 
@@ -58,7 +58,7 @@ function Signup() {
           required
           />
 
-          <label htmlFor = 'password'>Password:</label>
+          <label htmlFor = 'password'>* Password:</label>
           <input 
           type ='password' 
           name='password' 
@@ -68,7 +68,7 @@ function Signup() {
           required
           />
 
-          <label htmlFor = 're-enter-pass'>Re-enter Password:</label>
+          <label htmlFor = 're-enter-pass'>* Confirm Password:</label>
           <input 
           type ='password' 
           name='re-enter-pass' 
