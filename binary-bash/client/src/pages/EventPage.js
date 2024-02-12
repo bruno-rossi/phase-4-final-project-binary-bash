@@ -1,6 +1,7 @@
 // import "../styles/EventPage.css"
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import EventActivityPhotoCard from "../components/EventActivityPhotoCard";
 
 function EventPage() {
     const params = useParams();
@@ -17,12 +18,27 @@ function EventPage() {
     console.log(event)
 
     return (
-        <div class="event-page-container">
-            <h1>{event.title}</h1>
-            <img class="event-page-image" src={event.image} />
-            <h3>Time: {event.start_time} - {event.end_time}</h3>
-            <h3>Where: {event.location}</h3>
-            <p>{event.description}</p>
+        <div class="event-page">
+            <div className="event-page-container">
+                <h1>{event.title}</h1>
+                <img class="event-page-image" src={event.image} />
+                <h3>Time: {event.start_time} - {event.end_time}</h3>
+                <p>Hosted by: Bruno</p>
+                <h3>Where: {event.location}</h3>
+                <p>{event.description}</p>
+                <h3>1 Going</h3>
+                <p>Miguel Vasquez</p>
+
+                <hr />
+
+                <div className="photo-roll">
+                    <h1>Photo Roll</h1>
+                    <p>Add Your Photos here!</p>
+                    <input type='file' />
+                    <EventActivityPhotoCard />
+                </div>
+                
+            </div>
         </div>
     )
 };
