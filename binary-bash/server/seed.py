@@ -1,8 +1,5 @@
-from faker import Faker
 from random import choice as rc
 from datetime import datetime
-
-fake = Faker()
 
 from app import app
 from models import db, User, Event, EventUser
