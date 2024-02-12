@@ -1,4 +1,4 @@
-import '../styles/signup.css'
+// import '../styles/signup.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 

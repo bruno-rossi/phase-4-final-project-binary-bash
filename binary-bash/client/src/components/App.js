@@ -1,4 +1,5 @@
-import '../styles/App.css';
+// import '../styles/App.css';
+import '../styles/styles.css';
 import { useState, useEffect } from "react";
 import { Outlet, Navigate, useNavigate, NavLink } from "react-router-dom";
 import NavBar from './NavBar';
