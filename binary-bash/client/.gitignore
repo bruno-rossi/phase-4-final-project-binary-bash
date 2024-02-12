@@ -6,7 +6,7 @@
 .pnp.js
 
 # Flask database
-# app.db
+app.db
 
 # testing
 /coverage
