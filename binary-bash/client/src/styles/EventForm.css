@@ -6,16 +6,24 @@
 }
 
 .create-event-form label, input, textarea {
-    color: #EAE7FA;
+    
     width: 50%;
     font-size: 16px;
     display: block;
     margin: 0.5rem auto;
     border: none;
+    border-radius: 10px;
+    margin: 30px 0;
+    background-color: #A58CB3;
+    height: 40px;
+    color: #EAE7FA;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .create-event-form input, textarea {
     background-color: #838BC2;
+    color: #EAE7FA;
 }
 
 ::placeholder {

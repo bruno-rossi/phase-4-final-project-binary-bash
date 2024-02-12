@@ -84,8 +84,8 @@ function Signup() {
         <hr />
 
         <div className='terms-conditions'>
-          <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
           <input type='checkbox' name='check'/>
+          <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
         </div>
         
         <p>Already have an account? <NavLink to = '/login'>Login</NavLink></p>

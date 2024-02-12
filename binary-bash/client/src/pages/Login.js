@@ -61,12 +61,12 @@ function Login() {
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>
         </form>
 
-        <hr />
+        {/* <hr /> */}
 
-        <div className='terms-conditions'>
+        {/* <div className='terms-conditions'>
           <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
           <input type='checkbox' name='check'/>
-        </div>
+        </div> */}
         
         <p>Don't have an account? <NavLink to = '/signup'>Sign up</NavLink></p>
       </div>
