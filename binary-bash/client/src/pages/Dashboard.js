@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 // import "../styles/Dashboard.css"
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import EmptyCard from "../components/EmptyCard";
 
 function Dashboard() {
 
     const [ events, setEvents ] = useState([])
+
+    const { user, setUser } = useOutletContext();
 
     useEffect(() => {
         fetch("http://127.0.0.1:5555/events")
