@@ -8,8 +8,7 @@
   align-items: center;
 }
 .footer-items a:hover {
-  text-decoration: underline;
-  color: purple;
+  color: rgb(112, 70, 145);
   cursor: pointer;
 }
 .footer-copyright {

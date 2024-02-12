@@ -47,11 +47,15 @@
   border: none;
   border-radius: 10px;
   font-size: 20px;
+  cursor: pointer;
 }
 hr {
   background-color: black;
   margin: 30px auto; 
   width: 50%;
+}
+input[type="checkbox"] {
+  cursor: pointer;
 }
 .terms-conditions {
   margin: 0 auto;

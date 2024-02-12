@@ -58,6 +58,14 @@
     {
       "id": 3,
       "username": "bencavins"
+    },
+    {
+      "username": "LogIn Test",
+      "id": 4
+    },
+    {
+      "username": "login test 2",
+      "id": 5
     }
   ],
   "event_users": [
@@ -122,6 +130,12 @@
       "password": "",
       "confimedPass": "",
       "id": 5
+    },
+    {
+      "username": "",
+      "password": "",
+      "confimedPass": "",
+      "id": 6
     }
   ]
 }
