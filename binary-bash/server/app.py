@@ -45,6 +45,6 @@ def create_user():
     new_user = User (
         username=json_data.get('username')
     )
-    db.sesion.add(new_user)
+    db.session.add(new_user)
     db.session.commit()
     return new_user.to_dict(), 201
