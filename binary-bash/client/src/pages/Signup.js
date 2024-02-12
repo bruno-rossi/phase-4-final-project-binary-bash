@@ -70,7 +70,7 @@ function Signup() {
           required
           />
 
-          <label htmlFor = 're-enter-pass'>*Confirm Password:</label>
+          <label htmlFor = 're-enter-pass'>* Confirm Password:</label>
           <input 
           type ='password' 
           name='re-enter-pass' 
