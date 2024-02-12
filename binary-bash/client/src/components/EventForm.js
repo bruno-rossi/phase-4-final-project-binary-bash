@@ -44,7 +44,7 @@ function EventForm() {
     }
 
     return (
-        <div>
+        <div className="form-container">
             <Link to="/dashboard">x</Link>
             <form class="create-event-form" onSubmit={handleSubmit}>
                 <input 

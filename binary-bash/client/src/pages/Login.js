@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from 'react'
-import '../styles/login.css'
+// import '../styles/login.css'
 
 function Login() {
   const [data, setData] = useState([])
