@@ -1,38 +1,30 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from 'react'
 // import '../styles/login.css'
 
 function Login() {
-  const [data, setData] = useState([])
-  const [username, setUsername] = useState('')
-  const navigate = useNavigate()
 
+  const {user, setUser} = useOutletContext();
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
+  
   function handleSubmit(e) {
     e.preventDefault();
-
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
+    fetch("http://localhost:5555/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username })
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json()
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => { setUser(user); navigate('/dashboard') });
       }
-      throw new Error ("username doesn't exists")
-    })
-    .then(user => {
-      setData([...data, user])
-      navigate('/dashboard')
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    });
   }
-
 
   return (
     <div className="login-container">
@@ -52,9 +44,11 @@ function Login() {
 
           <label htmlFor = 'password'>Password:</label>
           <input 
-          type ='text' 
+          type ='password' 
           name='password' 
           id='password-textfield' 
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
           required
           />
 

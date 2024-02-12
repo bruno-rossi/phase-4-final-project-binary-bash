@@ -1,9 +1,12 @@
 // import '../styles/signup.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useOutletContext } from 'react-router-dom'
 import { useState } from 'react'
 
 
 function Signup() {
+
+  const {user, setUser} = useOutletContext();
+
   const [newData, setNewData] = useState([])
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
@@ -13,7 +16,7 @@ function Signup() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch('http://localhost:3000/new_user', {
+    fetch('http://localhost:5555/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,25 +24,24 @@ function Signup() {
       },
       body: JSON.stringify({
         username,
-        password,
-        confimedPass
+        password
       })
     })
     .then((res) => {
       if (res.ok) {
-        return res.json()
+        return res.json();
       }
       throw new Error ('Failed to create user')
     })
     .then(newUser => {
       setNewData([...newData, newUser])
+      console.log(newUser)
       navigate('/dashboard')
     })
     .catch(error => {
       console.log(error)
     }) 
   }
-
 
   return (
     <div className="signup-container">
