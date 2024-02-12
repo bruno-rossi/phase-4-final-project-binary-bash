@@ -44,68 +44,71 @@ function EventForm() {
     }
 
     return (
-        <div className="form-container">
-            <Link to="/dashboard">x</Link>
-            <form class="create-event-form" onSubmit={handleSubmit}>
-                <input 
-                    type="text"
-                    class="new-event-inputs"
-                    name="new-event-title"
-                    placeholder="What's your event title?"
-                    onChange={event => {setEventTitle(event.target.value)}}
-                    value={eventTitle}
-                    required>
-                </input>
-                <label for="new-event-image">Upload an image:</label>
-                <input 
-                    type="file"
-                    class="new-event-inputs"
-                    name="new-event-image"
-                    accept="image/png, image/jpeg"
-                    onChange={event => {setEventImage(event.target.value)}}
-                    value={eventImage}>
-                </input>
-                {/* <label for="new-event-date">When is your event?</label> */}
-                <input
-                    class="new-event-inputs"
-                    name="new-event-start"
-                    type="datetime-local"
-                    step={60}
-                    onChange={event => {setEventStartTime(event.target.value)}}
-                    value={eventStartTime}
-                    required>
-                </input>
-                <input
-                    class="new-event-inputs"
-                    name="new-event-end"
-                    type="datetime-local"
-                    step={60}
-                    onChange={event => {setEventEndTime(event.target.value)}}
-                    value={eventEndTime}
-                    min={eventStartTime}
-                    required>
-                </input>
-                {/* <label for="new-event-date"></label> */}
-                <input
-                    class="new-event-inputs"
-                    name="new-event-location"
-                    type="text"
-                    onChange={event => {setEventLocation(event.target.value)}}
-                    placeholder="Where is your event?"
-                    value={eventLocation}>
-                </input>
-                <textarea
-                    class="new-event-inputs"
-                    name="new-event-description"
-                    placeholder="Enter event description here"
-                    cols="50"
-                    rows="5"
-                    onChange={event => {setEventDescription(event.target.value)}}
-                    value={eventDescription}>
-                </textarea>
-                <input type="submit" value="Let's bash!"></input>
-            </form>
-        </div>
+        <div className="login-container">
+            <div className="form-container">
+                <Link to="/dashboard" className="go-back">Go Back</Link>
+                <h1>New Event</h1>
+                <form class="create-event-form" onSubmit={handleSubmit}>
+                    <input 
+                        type="text"
+                        class="new-event-inputs"
+                        name="new-event-title"
+                        placeholder="Untitled Event"
+                        onChange={event => {setEventTitle(event.target.value)}}
+                        value={eventTitle}
+                        required>
+                    </input>
+                    <label for="new-event-image">Upload an image:</label>
+                    <input 
+                        type="file"
+                        class="new-event-inputs"
+                        name="new-event-image"
+                        accept="image/png, image/jpeg"
+                        onChange={event => {setEventImage(event.target.value)}}
+                        value={eventImage}>
+                    </input>
+                    {/* <label for="new-event-date">When is your event?</label> */}
+                    <input
+                        class="new-event-inputs"
+                        name="new-event-start"
+                        type="datetime-local"
+                        step={60}
+                        onChange={event => {setEventStartTime(event.target.value)}}
+                        value={eventStartTime}
+                        required>
+                    </input>
+                    <input
+                        class="new-event-inputs"
+                        name="new-event-end"
+                        type="datetime-local"
+                        step={60}
+                        onChange={event => {setEventEndTime(event.target.value)}}
+                        value={eventEndTime}
+                        min={eventStartTime}
+                        required>
+                    </input>
+                    {/* <label for="new-event-date"></label> */}
+                    <input
+                        class="new-event-inputs"
+                        name="new-event-location"
+                        type="text"
+                        onChange={event => {setEventLocation(event.target.value)}}
+                        placeholder="Where is your event?"
+                        value={eventLocation}>
+                    </input>
+                    <textarea
+                        class="new-event-inputs"
+                        name="new-event-description"
+                        placeholder="Enter event description here"
+                        cols="50"
+                        rows="5"
+                        onChange={event => {setEventDescription(event.target.value)}}
+                        value={eventDescription}>
+                    </textarea>
+                    <input type="submit" value="Let's bash!" id='submit-btn'></input>
+                </form>
+            </div>
+        </div>   
     )
 };
 

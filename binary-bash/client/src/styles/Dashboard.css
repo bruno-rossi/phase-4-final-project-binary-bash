@@ -1,12 +1,16 @@
 .dashboard {
     background: rgb(131,139,194);
+    height: 100vh;
 }
 
 .dashboard-info {
-    background-color: white;
-    border: 1px solid;
     width: 80%;
     margin: 0 auto;
+}
+
+.dashboard-info h1 {
+    margin: 0;
+    padding-top: 20px;
 }
 
 .event-cards {
@@ -17,7 +21,7 @@
     gap: 10px 10px;
     margin: 0 auto;
     /* border: 1px solid; */
-    background-color: white;
+    /* background-color: white; */
 }
 
 .dashboard-info a {
@@ -28,4 +32,5 @@
     max-width: 10%;
     padding: 10px;
     margin: 2% auto;
+    border: 2px solid black;
 }
