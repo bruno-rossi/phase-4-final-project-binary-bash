@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 function EventCard({event}) {
 
     return (
-        <div className="event-card">
-            <h1>{event.title}</h1>
-            <img src={event.image} />
-            <p>{event.date}</p>
-            <p>{event.start_time} - {event.end_time}</p>
-            <Link to={`/events/${event.id}`} >Details</Link>
-        </div>
+        <Link to={`/events/${event.id}`} className="event-card">
+            <div>
+                <img src={event.image} />
+                <h1>{event.title}</h1>
+                <p className="hosted-by">Hosted by *name*</p>
+                <p>{event.date}</p>
+                <p>{event.start_time} - {event.end_time}</p>
+                {/* <Link to={`/events/${event.id}`} >Details</Link> */}
+            </div>
+        </Link>
     )
 };
 
