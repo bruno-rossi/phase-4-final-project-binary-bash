@@ -55,6 +55,7 @@ function Signup() {
           id='username-textfield' 
           value={username}
           onChange={event => setUserName(event.target.value)}
+          required
           />
 
           <label htmlFor = 'password'>Password:</label>
@@ -64,6 +65,7 @@ function Signup() {
           id='password-textfield' 
           value={password}
           onChange={event => setPassword(event.target.value)}
+          required
           />
 
           <label htmlFor = 're-enter-pass'>Re-enter Password:</label>
@@ -73,6 +75,7 @@ function Signup() {
           id='re-enter-textfield'
           value={confimedPass}
           onChange={event => setConfimedPass(event.target.value)} 
+          required
           />
 
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>

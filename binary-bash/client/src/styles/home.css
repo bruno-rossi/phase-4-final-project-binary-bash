@@ -13,7 +13,6 @@
   font-size: 100px;
   color: #EAE7FA;
 }
-/* All Buttons */
 .home-page button {
   border: solid 2px black;
   padding: 5px 10px;
@@ -26,16 +25,9 @@
   background-color: #D9A1A0;
   cursor: pointer;
 }
-/* signup/login buttons group */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 50px;
-}
 /* paragraph container */
 .paragraph {
-  margin: 80px 0;
+  margin: 30px 0;
   display: flex;
   justify-content: center;
 }

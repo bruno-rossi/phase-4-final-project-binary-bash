@@ -8,10 +8,6 @@ function Home() {
          <div className="home-page">
             <div className="home-container">
               <h1>binaryBash</h1>
-            <div className="button-group">
-                <NavLink to='/login'><button>Login</button></NavLink>
-                <NavLink to='/signup'><button>Signup</button></NavLink>
-            </div>
             
             <div className="paragraph">
                 <p>

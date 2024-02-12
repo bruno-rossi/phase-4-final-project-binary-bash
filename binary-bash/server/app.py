@@ -37,3 +37,14 @@ def event_by_id(id):
     if not event:
         return {"error": "Event not found"}, 404
     return event.to_dict(), 200
+
+# Sign Up
+@app.route('/users/<int:id>', methods=['POST'])
+def create_user():
+    json_data = request.get_json()
+    new_user = User (
+        username=json_data.get('username')
+    )
+    db.sesion.add(new_user)
+    db.session.commit()
+    return new_user.to_dict(), 201
