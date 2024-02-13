@@ -37,8 +37,8 @@ class Event(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
-    start_time = db.Column(db.DateTime)
-    end_time = db.Column(db.DateTime)
+    start_time = db.Column(db.String)
+    end_time = db.Column(db.String)
     location = db.Column(db.String)
     description = db.Column(db.String)
 
