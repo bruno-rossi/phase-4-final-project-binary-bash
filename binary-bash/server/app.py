@@ -25,29 +25,6 @@ def all_events():
     return events_list, 200
 
 
-@app.route('/events', methods=['POST'])
-def create_event():
-    json_data = request.form.to_dict()
-    file = request.files['image']
-
-    if file:
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        json_data['image'] = filename
-
-    new_event = Event(
-        title=json_data.get('title'),
-        image=json_data.get('image'),
-        start_time=json_data.get('start_time'),
-        end_time=json_data.get('end_time'),
-        location=json_data.get('location'),
-        description=json_data.get('description')
-    )
-
-    db.session.add(new_event)
-    db.session.commit()
-    return new_event.to_dict(), 201
-
 # Event by id
 @app.route('/events/<int:id>')
 def event_by_id(id):
@@ -90,21 +67,44 @@ def all_users():
     return users_list, 200
 
 # User by id
-@app.route('/users/<int:id>')
+@app.route('/users/<int:id>', methods=['GET', 'POST'])
 def user_by_id(id):
     user = User.query.filter(User.id == id).first()
 
     if not user:
         return {"error": "User not found"}, 404
-    return user.to_dict(), 200
+    
+    if request.method == 'GET':
+        return user.to_dict(), 200
+    elif request.method == 'POST':
+        json_data = request.form.to_dict()
+        file = request.files['image']
+
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            json_data['image'] = filename
+
+        new_event = Event(
+            title=json_data.get('title'),
+            image=json_data.get('image'),
+            start_time=json_data.get('start_time'),
+            end_time=json_data.get('end_time'),
+            location=json_data.get('location'),
+            description=json_data.get('description')
+        )
+
+        db.session.add(new_event)
+        db.session.commit()
+        return new_event.to_dict(), 201
 
 # Events by user id
-@app.route('/users/<int:id>/events')
+@app.route('/users/<int:id>/events', methods=['GET'])
 def events_by_user(id):
 
     user = User.query.filter(User.id == id).first()
-
     return user.to_dict(only=['events']), 200
+
 
 # Sign Up
 @app.route('/signup', methods=['POST'])

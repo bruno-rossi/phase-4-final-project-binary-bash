@@ -2,11 +2,12 @@ import "../styles/EventForm.css"
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext} from "react-router-dom";
 import DatePicker from 'react-datepicker'
 
 function EventForm() {
 
+    const [ newEvent, setNewEvent ] = useState([])
     const [ eventTitle, setEventTitle ] = useState("")
     const [ eventImage, setEventImage ] = useState("")
     const [ eventStartTime, setEventStartTime ] = useState("")
@@ -16,6 +17,7 @@ function EventForm() {
     const [ imagePreview, setImagePreview ] = useState("")
 
     const navigate = useNavigate();
+    const { user, setUser } = useOutletContext();
 
     function handleFileChange(event) {
         event.preventDefault();
@@ -41,17 +43,17 @@ function EventForm() {
         formData.append("description", eventDescription);
         formData.append("start_time", eventStartTime);
         formData.append("end_time", eventEndTime);
+
         
-        fetch("http://localhost:5555/events", {
+        fetch(`http://127.0.0.1:5555/users/${user.id}`, {
           method: "POST",
           body: formData
         })
         
         .then(res => res.json())
         // .then(data => setStores([...stores, data]))
-        .then(() => {
-            event.target.reset()
-
+        .then(userEvent => {
+            setNewEvent([...newEvent, userEvent])
             navigate('/dashboard');
         })
     }
@@ -92,7 +94,7 @@ function EventForm() {
                     className="date-picker"
                     selected={eventStartTime} 
                     onChange={date => setEventStartTime(date)} 
-                    dateFormat="MMMM Do YYYY, h:mm:ss a"
+                    dateFormat="MMMM d YYYY, h:mm:ss a"
                     showTimeSelect
                     placeholderText="Start Date" 
                     required
@@ -103,7 +105,7 @@ function EventForm() {
                     className="date-picker"
                     selected={eventEndTime} 
                     onChange={date => setEventEndTime(date)} 
-                    dateFormat="MMMM Do YYYY, h:mm:ss a"
+                    dateFormat="MMMM d YYYY, h:mm:ss a"
                     showTimeSelect
                     placeholderText="End Time"
                     required
