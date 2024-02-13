@@ -58,6 +58,16 @@ def event_by_id(id):
         return {"error": "Event not found"}, 404
     return event.to_dict(), 200
 
+@app.route('/events_by_user/')
+def events_by_user():
+
+    # user = User.query.filter(User.id == id).first()
+    events_users = [event.to_dict() for event in EventUser.query.all()]
+
+    return events_users, 200
+
+    # events_list = [event.to_dict(rules=['-users.event']) for event in Event.query.all()]
+
 # Sign Up
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -78,7 +88,7 @@ def signup():
 
 # Log in
 @app.route('/login', methods=['POST'])
-def post():
+def login():
 
         username = request.get_json()['username']
         password = request.get_json()['password']

@@ -15,7 +15,7 @@ function App() {
     // auto-login
     fetch("http://localhost:5555/check_session").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then(fetched_user => setUser(fetched_user));
       }
     });
   }, []);
