@@ -47,8 +47,6 @@ def create_event():
     db.session.commit()
     return new_event.to_dict(), 201
 
-
-
 # Event by id
 @app.route('/events/<int:id>')
 def event_by_id(id):

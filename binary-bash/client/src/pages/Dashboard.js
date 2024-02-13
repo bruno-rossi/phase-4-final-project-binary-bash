@@ -29,8 +29,8 @@ function Dashboard() {
         )
     } else {
         return (
-            <div class="dashboard">
-                <div class="dashboard-info">
+            <div className="dashboard">
+                <div className="dashboard-info">
                     <h1>Upcoming Events</h1>
                     <h2>You have {events.length} events.</h2>
                     {/* <Link to="/create-event/">Create a new event</Link> */}
