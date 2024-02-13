@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 // import "../styles/Dashboard.css"
-import { Link, useOutletContext } from "react-router-dom";
+import { Link, useOutletContext, useNavigate } from "react-router-dom";
 import EmptyCard from "../components/EmptyCard";
 
 function Dashboard() {
@@ -10,12 +10,22 @@ function Dashboard() {
 
     const { user, setUser } = useOutletContext();
 
-    useEffect(() => {
-        fetch("http://127.0.0.1:5555/events")
-        .then(res => res.json())
-        .then(events => setEvents(events))
-    }, [])
+    const navigate = useNavigate()
 
+    useEffect(() => {
+
+        if (!user) {
+            navigate('/login');
+        } else {
+            fetch(`http://127.0.0.1:5555/users/${user.id}/events`)
+            .then(res => res.json())
+            .then(data => {
+                const events_array = data.events.map(item => item.event)
+                setEvents(events_array);
+        })
+        }
+        
+    }, [])
     
     if (events.length === 0) {
         return (

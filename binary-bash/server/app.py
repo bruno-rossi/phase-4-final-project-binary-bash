@@ -73,6 +73,14 @@ def user_by_id(id):
         return {"error": "User not found"}, 404
     return user.to_dict(), 200
 
+# Events by user id
+@app.route('/users/<int:id>/events')
+def events_by_user(id):
+
+    user = User.query.filter(User.id == id).first()
+
+    return user.to_dict(only=['events']), 200
+
 # Sign Up
 @app.route('/signup', methods=['POST'])
 def signup():
