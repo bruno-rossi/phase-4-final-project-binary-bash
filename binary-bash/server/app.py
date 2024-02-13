@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
-from flask import request, session, make_response, jsonify
+from flask import request, session
+from werkzeug.utils import secure_filename
+from flask import send_from_directory
 from models import User, Event, EventUser
 from config import app, db
+import os
 
 # @app.route('/')
 # def index():
@@ -14,11 +17,37 @@ from config import app, db
 #         return {'error': 'Unauthorized'}, 401
 
 # Events
-@app.route('/events')
+@app.route('/events', methods=['GET'])
 def all_events():
     events_list = [event.to_dict(rules=['-users.event']) for event in Event.query.all()]
 
     return events_list, 200
+
+
+@app.route('/events', methods=['POST'])
+def create_event():
+    json_data = request.form.to_dict()
+    file = request.files['image']
+
+    if file:
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        json_data['image'] = filename
+
+    new_event = Event(
+        title=json_data.get('title'),
+        image=json_data.get('image'),
+        start_time=json_data.get('start_time'),
+        end_time=json_data.get('end_time'),
+        location=json_data.get('location'),
+        description=json_data.get('description')
+    )
+
+    db.session.add(new_event)
+    db.session.commit()
+    return new_event.to_dict(), 201
+
+
 
 # Event by id
 @app.route('/events/<int:id>')
@@ -89,3 +118,4 @@ def get():
         return user.to_dict(), 200
     else:
         return {'message': '401: Not Authorized'}, 401
+    
