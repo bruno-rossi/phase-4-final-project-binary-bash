@@ -315,6 +315,13 @@ input[type="checkbox"] {
     background-color: #A58CB3;
     width: 200px;
 }
+.preview-image {
+    margin: 0;
+    background-color:  rgba(165,140,179,1);
+    height: max-content;
+    padding: 10px;
+    border-radius: 12px;
+}
 
 /* Dashboard */
 .dashboard {
@@ -450,6 +457,9 @@ input[type="checkbox"] {
 }
 .photo-roll {
     padding-bottom: 30px;
+}
+.photo-roll input {
+    width: 25%;
 }
 .photo-roll-container {
     display: grid;

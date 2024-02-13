@@ -11,29 +11,40 @@ function EventForm() {
     const [ eventEndTime, setEventEndTime ] = useState("")
     const [ eventDescription, setEventDescription ] = useState("")
     const [ eventLocation, setEventLocation ] = useState("")
+    const [ imagePreview, setImagePreview ] = useState("")
 
     const navigate = useNavigate();
+
+    function handleFileChange(event) {
+        event.preventDefault();
+        const selectedFile = event.target.files[0];
+
+        if (selectedFile) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result)
+            }
+            reader.readAsDataURL(selectedFile);
+        }
+        setEventImage(selectedFile);
+      };
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        const new_event = {
-            title: eventTitle,
-            image: eventImage,
-            location: eventLocation,
-            description: eventDescription,
-            start_time: eventStartTime,
-            end_time: eventEndTime
-        }
-
+        const formData = new FormData();
+        formData.append("title", eventTitle);
+        formData.append("image", eventImage);
+        formData.append("location", eventLocation);
+        formData.append("description", eventDescription);
+        formData.append("start_time", eventStartTime);
+        formData.append("end_time", eventEndTime);
+        
         fetch("http://localhost:5555/events", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(new_event)
+          method: "POST",
+          body: formData
         })
+        
         .then(res => res.json())
         // .then(data => setStores([...stores, data]))
         .then(() => {
@@ -48,28 +59,34 @@ function EventForm() {
             <div className="form-container">
                 <Link to="/dashboard" className="go-back">Go Back</Link>
                 <h1>New Event</h1>
-                <form class="create-event-form" onSubmit={handleSubmit}>
+                <form className="create-event-form" onSubmit={handleSubmit}>
                     <input 
                         type="text"
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-title"
                         placeholder="Untitled Event"
                         onChange={event => {setEventTitle(event.target.value)}}
                         value={eventTitle}
                         required>
                     </input>
-                    <label for="new-event-image">Upload an image:</label>
+
+                    {imagePreview && 
+                        <div className="preview-image">
+                            <h2>Image Preview:</h2>
+                            <img src={imagePreview} style={{maxWidth: '400px'}} />
+                        </div> }
+                
                     <input 
                         type="file"
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-image"
                         accept="image/png, image/jpeg"
-                        onChange={event => {setEventImage(event.target.value)}}
-                        value={eventImage}>
+                        onChange={handleFileChange}>
                     </input>
+
                     {/* <label for="new-event-date">When is your event?</label> */}
                     <input
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-start"
                         type="datetime-local"
                         step={60}
@@ -78,7 +95,7 @@ function EventForm() {
                         required>
                     </input>
                     <input
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-end"
                         type="datetime-local"
                         step={60}
@@ -89,7 +106,7 @@ function EventForm() {
                     </input>
                     {/* <label for="new-event-date"></label> */}
                     <input
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-location"
                         type="text"
                         onChange={event => {setEventLocation(event.target.value)}}
@@ -97,7 +114,7 @@ function EventForm() {
                         value={eventLocation}>
                     </input>
                     <textarea
-                        class="new-event-inputs"
+                        className="new-event-inputs"
                         name="new-event-description"
                         placeholder="Enter event description here"
                         cols="50"
