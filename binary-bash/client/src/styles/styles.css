@@ -322,6 +322,15 @@ input[type="checkbox"] {
     padding: 10px;
     border-radius: 12px;
 }
+.create-event-form h3 {
+    margin: 20px 0 0 0;
+}
+input.date-picker {
+    max-width: 100%;
+    background-color: #A58CB3;
+    cursor: pointer;
+    font-size: 20px;
+}
 
 /* Dashboard */
 .dashboard {
