@@ -57,6 +57,31 @@ def event_by_id(id):
         return {"error": "Event not found"}, 404
     return event.to_dict(), 200
 
+# Event guests by event id
+@app.route('/events/<int:id>/guests')
+def event_guests(id):
+    event = Event.query.filter(Event.id == id).first()
+
+    if not event:
+        return {"error": "Event not found"}, 404
+    
+    event_dict = event.to_dict()
+    guests = [user['user']['username'] for user in event_dict['users'] if user['type'] == "guest"]
+
+    return guests, 200
+
+# Event host by event id
+@app.route('/events/<int:id>/host')
+def event_host(id):
+    event = Event.query.filter(Event.id == id).first()
+    if not event:
+        return {"error": "Event not found"}, 404
+    
+    event_dict = event.to_dict()
+    host = [user['user']['username'] for user in event_dict['users'] if user['type'] == "host"]
+
+    return host, 200
+
 # Users
 @app.route('/users')
 def all_users():
