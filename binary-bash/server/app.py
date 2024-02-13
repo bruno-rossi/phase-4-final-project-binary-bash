@@ -6,6 +6,7 @@ from flask import send_from_directory
 from models import User, Event, EventUser
 from config import app, db
 import os
+from datetime import datetime
 
 # @app.route('/')
 # def index():
@@ -47,8 +48,6 @@ def create_event():
     db.session.commit()
     return new_event.to_dict(), 201
 
-
-
 # Event by id
 @app.route('/events/<int:id>')
 def event_by_id(id):
@@ -57,6 +56,22 @@ def event_by_id(id):
     if not event:
         return {"error": "Event not found"}, 404
     return event.to_dict(), 200
+
+# Users
+@app.route('/users')
+def all_users():
+    users_list = [user.to_dict() for user in User.query.all()]
+
+    return users_list, 200
+
+# User by id
+@app.route('/users/<int:id>')
+def user_by_id(id):
+    user = User.query.filter(User.id == id).first()
+
+    if not user:
+        return {"error": "User not found"}, 404
+    return user.to_dict(), 200
 
 # Sign Up
 @app.route('/signup', methods=['POST'])
@@ -78,7 +93,7 @@ def signup():
 
 # Log in
 @app.route('/login', methods=['POST'])
-def post():
+def login():
 
         username = request.get_json()['username']
         password = request.get_json()['password']
