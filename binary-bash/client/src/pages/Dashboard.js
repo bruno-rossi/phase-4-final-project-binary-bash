@@ -35,7 +35,7 @@ function Dashboard() {
                     <h2>You have {events.length} events.</h2>
                     {/* <Link to="/create-event/">Create a new event</Link> */}
                 </div>
-                <div class="event-cards">
+                <div className="event-cards">
                     {events.map(event => 
                             <EventCard key={event.id} event={event} />
                     )}

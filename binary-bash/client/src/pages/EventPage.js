@@ -18,10 +18,10 @@ function EventPage() {
     console.log(event)
 
     return (
-        <div class="event-page">
+        <div className="event-page">
             <div className="event-page-container">
                 <h1>{event.title}</h1>
-                <img class="event-page-image" src={event.image} />
+                <img className="event-page-image" src={event.image} />
                 <h3>Time: {event.start_time} - {event.end_time}</h3>
                 <p>Hosted by: Bruno</p>
                 <h3>Where: {event.location}</h3>
