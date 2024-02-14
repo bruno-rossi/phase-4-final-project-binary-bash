@@ -80,8 +80,6 @@ def user_by_id(id):
         json_data = request.form.to_dict()
         file = request.files['image']
 
-        print(request.files)
-
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
