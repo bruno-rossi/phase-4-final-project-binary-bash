@@ -33,9 +33,8 @@ function App() {
 
   return (
     <div className={`App ${themeclass}`}>
-        <NavBar user={user} setUser={setUser} />
+        <NavBar user={user} setUser={setUser} handleclick={handleclick} isDarkMode={isDarkMode} />
         <Outlet context={{user: user, setUser: setUser}}/>
-        <button className='toggle-btn' onClick={handleclick}>{isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode'}</button>
         <Footer />
     </div>
   );

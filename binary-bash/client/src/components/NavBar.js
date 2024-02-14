@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 // import '../styles/navbar.css'
 
-function NavBar({user, setUser}) {
+function NavBar({user, setUser, handleclick, isDarkMode }) {
 
   const navigate = useNavigate()
 
@@ -25,10 +25,12 @@ function NavBar({user, setUser}) {
 
         {user ? (
           <div className="button-group">
+             <button className='toggle-btn' onClick={handleclick}>{isDarkMode ? '☀️' : '🌙'}</button>
             <NavLink onClick={handleLogoutClick}><button>Logout</button></NavLink>
           </div>
         ) : (
         <div className="button-group">
+          <button className='toggle-btn' onClick={handleclick}>{isDarkMode ? '☀️' : '🌙'}</button>
           <NavLink to='/login'><button>Login</button></NavLink>
           <NavLink to='/signup'><button>Signup</button></NavLink>
         </div>
