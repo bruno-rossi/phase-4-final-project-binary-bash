@@ -6,7 +6,7 @@ function NavBar({user, setUser, handleclick, isDarkMode }) {
   const navigate = useNavigate()
 
   function handleLogoutClick() {
-    fetch("http://localhost:5555/logout", { method: "DELETE" }).then((r) => {
+    fetch("http://localhost:5555/logout", { method: "DELETE", credentials: 'include' }).then((r) => {
       if (r.ok) {
         setUser(null);
         navigate('/login')

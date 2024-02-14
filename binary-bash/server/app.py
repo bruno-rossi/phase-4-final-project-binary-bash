@@ -117,6 +117,30 @@ def events_by_user(id):
     user = User.query.filter(User.id == id).first()
     return user.to_dict(only=['events']), 200
 
+@app.route('/events/<int:event_id>/users/<int:user_id>', methods=['POST', 'DELETE'])
+def manage_rsvp(event_id, user_id):
+    
+    if request.method == 'POST':
+        new_rsvp = EventUser(
+        event_id=event_id,
+        user_id=user_id,
+        type="guest"
+        )
+        db.session.add(new_rsvp)
+        db.session.commit()
+
+        return new_rsvp.to_dict(), 200
+    
+    if request.method == 'DELETE':
+        event_user = EventUser.query.filter(EventUser.event_id == event_id and EventUser.user_id == user_id).first()
+
+        print(event_user)
+
+        if event_user:
+            db.session.delete(event_user)
+            db.session.commit()
+
+        return {}, 200
 
 # Sign Up
 @app.route('/signup', methods=['POST'])
