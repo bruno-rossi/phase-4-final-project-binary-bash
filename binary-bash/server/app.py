@@ -47,13 +47,13 @@ def all_events():
         db.session.add(new_event)
         db.session.commit()
 
-        # new_event_user = EventUser(
-        #     event_id=new_event.id,
-        #     user_id=json_data.get('user.id'),
-        #     type="host"
-        # )
-        # db.session.add(new_event_user)
-        # db.session.commit()
+        new_event_user = EventUser(
+            event_id=new_event.id,
+            user_id=json_data.get('user_id'),
+            type="host"
+        )
+        db.session.add(new_event_user)
+        db.session.commit()
 
         return new_event.to_dict(), 201
 
