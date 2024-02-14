@@ -1,8 +1,8 @@
-"""initial migrate
+"""Initial
 
-Revision ID: f4b0dffd72e6
+Revision ID: f1cc992db026
 Revises: 
-Create Date: 2024-02-12 22:40:05.900749
+Create Date: 2024-02-14 10:26:21.750847
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f4b0dffd72e6'
+revision = 'f1cc992db026'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,8 +22,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('image', sa.String(), nullable=True),
-    sa.Column('start_time', sa.DateTime(), nullable=True),
-    sa.Column('end_time', sa.DateTime(), nullable=True),
+    sa.Column('start_time', sa.String(), nullable=True),
+    sa.Column('end_time', sa.String(), nullable=True),
     sa.Column('location', sa.String(), nullable=True),
     sa.Column('description', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_events'))
