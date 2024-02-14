@@ -83,7 +83,7 @@ function EventForm() {
                 
                     <input 
                         type="file"
-                        className="new-event-inputs"
+                        className="file-upload-input"
                         name="new-event-image"
                         accept="image/png, image/jpeg"
                         onChange={handleFileChange}>
@@ -110,6 +110,7 @@ function EventForm() {
                     placeholderText="End Time"
                     required
                     />
+                    
                     {/* <label for="new-event-date"></label> */}
                     <input
                         className="new-event-inputs"
