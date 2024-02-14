@@ -1,11 +1,50 @@
-body {
+/* body {
+    background: rgb(131,139,194);
+    background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
+} */
+
+.light-theme {
     background: rgb(131,139,194);
     background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
 }
 
+.toggle-btn {
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4a4e58;
+    color: white;
+    cursor: pointer;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background: linear-gradient(90deg, #373a42 0%, #2e3138 50%, #373a42 100%);
+    color: #ffffff;
+}
+.dark-theme .toggle-btn {
+    color: #4a4e58;
+    background-color: white;
+}
+.dark-theme .form-container {
+    background: #4a4e58;
+    color: #ffffff;
+}
+.dark-theme .form-container a {
+    color: white;
+}
+.dark-theme .dashboard {
+    background: linear-gradient(90deg, #373a42 0%, #2e3138 50%, #373a42 100%);
+    color: #ffffff;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 .App {
     text-align: center;
-  }
+}
   
 .App-logo {
     height: 40vmin;
@@ -44,8 +83,6 @@ body {
 
 /* Home */
 .home-page {
-    background: rgb(131,139,194);
-    background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -205,8 +242,6 @@ body {
 
 /* Signup Form */
 .signup-container {
-    background: rgb(131,139,194);
-    background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -248,11 +283,12 @@ input[type="checkbox"] {
     font-style: italic;
     padding: 20px 0;
 }
+.form-container a {
+    color: black;
+}
 
 /* Login form */
 .login-container {
-    background: rgb(131,139,194);
-    background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -447,18 +483,15 @@ input.date-picker {
 
 /* Event page */
 .event-page {
-    background-color: rgb(131,139,194);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: scroll;
 }
-
 .event-page h1 {
     margin: 0;
 }
-
 .event-page-image {
     margin-top: 10px;
     width: 200px;
