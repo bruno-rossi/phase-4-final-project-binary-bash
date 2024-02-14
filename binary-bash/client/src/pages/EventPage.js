@@ -44,7 +44,7 @@ function EventPage() {
                 <h3>Where: {event.location}</h3>
                 <p>{event.description}</p>
                 <h3>{guests.length} Going</h3>
-                {guests ? guests.map(guest => <p>{guest}</p>) : <p>Add guests to your bash!</p>}
+                {guests ? guests.map(guest => <p>{guest}</p>) : <p>There are no guests yet.</p>}
 
                 <hr />
 

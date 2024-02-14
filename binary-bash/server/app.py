@@ -18,11 +18,44 @@ from datetime import datetime
 #         return {'error': 'Unauthorized'}, 401
 
 # Events
-@app.route('/events', methods=['GET'])
+@app.route('/events', methods=['GET', 'POST'])
 def all_events():
     events_list = [event.to_dict(rules=['-users.event']) for event in Event.query.all()]
 
-    return events_list, 200
+    if request.method == 'GET':
+        return events_list, 200
+    
+    if request.method == 'POST':
+
+        json_data = request.form.to_dict()
+        file = request.files['image']
+
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            json_data['image'] = filename
+
+        new_event = Event(
+            title=json_data.get('title'),
+            image=json_data.get('image'),
+            start_time=json_data.get('start_time'),
+            end_time=json_data.get('end_time'),
+            location=json_data.get('location'),
+            description=json_data.get('description')
+        )
+
+        db.session.add(new_event)
+        db.session.commit()
+
+        # new_event_user = EventUser(
+        #     event_id=new_event.id,
+        #     user_id=json_data.get('user.id'),
+        #     type="host"
+        # )
+        # db.session.add(new_event_user)
+        # db.session.commit()
+
+        return new_event.to_dict(), 201
 
 
 # Event by id
@@ -76,27 +109,6 @@ def user_by_id(id):
     
     if request.method == 'GET':
         return user.to_dict(), 200
-    elif request.method == 'POST':
-        json_data = request.form.to_dict()
-        file = request.files['image']
-
-        if file:
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            json_data['image'] = filename
-
-        new_event = Event(
-            title=json_data.get('title'),
-            image=json_data.get('image'),
-            start_time=json_data.get('start_time'),
-            end_time=json_data.get('end_time'),
-            location=json_data.get('location'),
-            description=json_data.get('description')
-        )
-
-        db.session.add(new_event)
-        db.session.commit()
-        return new_event.to_dict(), 201
 
 # Events by user id
 @app.route('/users/<int:id>/events', methods=['GET'])
@@ -118,7 +130,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        session['user_id'] = new_user.id
+        # session['user_id'] = new_user.id
         
         return new_user.to_dict(), 201
 
@@ -161,8 +173,10 @@ def delete():
 @app.route('/check_session')
 def get():
 
-    user = User.query.filter(User.id == session.get('user_id')).first()
-    if user:
+    user_id = session.get('user_id')
+
+    if user_id:
+        user = User.query.filter(User.id == session.get('user_id')).first()
         return user.to_dict(), 200
     else:
         return {'message': '401: Not Authorized'}, 401

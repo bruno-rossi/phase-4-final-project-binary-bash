@@ -37,23 +37,22 @@ function EventForm() {
         event.preventDefault();
 
         const formData = new FormData();
+        formData.append("user", user)
         formData.append("title", eventTitle);
         formData.append("image", eventImage);
         formData.append("location", eventLocation);
         formData.append("description", eventDescription);
         formData.append("start_time", eventStartTime);
-        formData.append("end_time", eventEndTime);
+        formData.append("end_time", eventEndTime); 
 
-        
-        fetch(`http://127.0.0.1:5555/users/${user.id}`, {
+        fetch("http://127.0.0.1:5555/events", {
           method: "POST",
           body: formData
         })
-        
         .then(res => res.json())
-        // .then(data => setStores([...stores, data]))
-        .then(userEvent => {
-            setNewEvent([...newEvent, userEvent])
+        .then(event => {
+            setNewEvent([...newEvent, event])
+            console.log(event);
             navigate('/dashboard');
         })
     }
