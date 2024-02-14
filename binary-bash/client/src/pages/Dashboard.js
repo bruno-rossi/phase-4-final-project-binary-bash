@@ -50,6 +50,24 @@ function Dashboard() {
         
     }, [])
     
+    if (!user) {
+        return (
+            <div className="dashboard">
+                <div className="dashboard-info">
+                    <h1>Explore Events</h1>
+                    <div className="event-cards">
+                        {events.map(event => 
+                            <EventCard key={event.id} event={event} />
+                        )}
+                    </div>
+                    <h1 style={{display: 'inline-block'}}>Want To Create An Event?</h1>
+                    <EmptyCard />
+                </div>
+            </div>
+        )
+    }
+
+
     if (events.length === 0) {
         return (
             <div className="dashboard">

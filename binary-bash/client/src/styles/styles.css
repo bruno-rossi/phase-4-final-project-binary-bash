@@ -283,6 +283,18 @@
     font-style: italic;
     padding: 20px 0;
 }
+#password-match-error {
+    background-color: rgb(210, 49, 49);
+    color: white;
+    font-weight: 500;
+    margin: 0;
+    padding: 5px;
+}
+#password-match-hidden {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
 
 /* Signup Form */
 .signup-container {

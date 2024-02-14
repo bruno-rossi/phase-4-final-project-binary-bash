@@ -11,37 +11,41 @@ function Signup() {
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [confimedPass, setConfimedPass] = useState('')
+  const [passwordValidate, setPasswordValidate] = useState('')
   const navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch('http://localhost:5555/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-        password
+    if (password !== confimedPass) {
+      setPasswordValidate('Passwords Must Match')
+    } else fetch('http://localhost:5555/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          username,
+          password
+        })
       })
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      throw new Error ('Failed to create user')
-    })
-    .then(newUser => {
-      setNewData([...newData, newUser])
-      console.log(newUser)
-      navigate('/dashboard')
-    })
-    .catch(error => {
-      console.log(error)
-    }) 
-  }
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error ('Failed to create user')
+      })
+      .then(newUser => {
+        setNewData([...newData, newUser])
+        console.log(newUser)
+        navigate('/login')
+      })
+      .catch(error => {
+        console.log(error)
+      }) 
+    }
 
   return (
     <div className="signup-container">
@@ -80,6 +84,7 @@ function Signup() {
           required
           />
 
+          <p id={passwordValidate ? "password-match-error" : 'password-match-hidden'}>{passwordValidate}</p>
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>
         </form>
 
@@ -89,7 +94,6 @@ function Signup() {
           <input type='checkbox' name='check'/>
           <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
         </div>
-        
         <p>Already have an account? <NavLink to = '/login'>Login</NavLink></p>
       </div>
     </div>

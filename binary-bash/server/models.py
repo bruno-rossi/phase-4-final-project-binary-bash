@@ -1,5 +1,6 @@
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.orm import validates
 
 from config import db, bcrypt
 
@@ -27,6 +28,14 @@ class User(db.Model, SerializerMixin):
 
     # Serialization:
     serialize_rules = ['-events_users.user']
+
+    # Validations
+    # @validates('username')
+    # def validate_username(self, key, new_username):
+    #     if new_username == self.username:
+    #         raise ValueError('username already exists')
+    #     return new_username
+
 
     def __repr__(self) -> str:
         return f"<User {self.username}, id: {self.id}"
