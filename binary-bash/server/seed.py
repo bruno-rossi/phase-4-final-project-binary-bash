@@ -12,17 +12,11 @@ if __name__ == '__main__':
         EventUser.query.delete()
 
         print("Seeding events...")
-        event1 = Event(title="Housewarming party", image="https://i.pinimg.com/236x/d8/57/8a/d8578a7c90c9944169a16241ca3920d5.jpg", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-        event1.start_time = datetime(2012, 3, 3, 10, 10, 10)
-        event1.end_time = datetime(2012, 3, 3, 10, 10, 20)
+        event1 = Event(title="Housewarming party", image="https://i.pinimg.com/236x/d8/57/8a/d8578a7c90c9944169a16241ca3920d5.jpg", start_time="Feb 14", end_time="Feb 14", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
-        event2 = Event(title="Birthday party", image="https://images.ctfassets.net/sfnkq8lmu5d7/5s1kya8JDQapExFKfM8ahI/20f07aaace35649eefb27022a2f13556/2021_0517-catGotchaDay-AdobeStock_235571404.jpg?w=1000&h=750&fl=progressive&q=70&fm=jpg", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-        event2.start_time = datetime(2012, 3, 3, 10, 10, 10)
-        event2.end_time = datetime(2012, 3, 3, 10, 10, 20)
+        event2 = Event(title="Birthday party", image="https://images.ctfassets.net/sfnkq8lmu5d7/5s1kya8JDQapExFKfM8ahI/20f07aaace35649eefb27022a2f13556/2021_0517-catGotchaDay-AdobeStock_235571404.jpg?w=1000&h=750&fl=progressive&q=70&fm=jpg", start_time="Feb 14", end_time="Feb 14", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
-        event3 = Event(title="Nananan", image="https://images.ctfassets.net/sfnkq8lmu5d7/5s1kya8JDQapExFKfM8ahI/20f07aaace35649eefb27022a2f13556/2021_0517-catGotchaDay-AdobeStock_235571404.jpg?w=1000&h=750&fl=progressive&q=70&fm=jpg", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-        event2.start_time = datetime(2012, 3, 3, 10, 10, 10)
-        event2.end_time = datetime(2012, 3, 3, 10, 10, 20)
+        event3 = Event(title="Nananan", image="https://images.ctfassets.net/sfnkq8lmu5d7/5s1kya8JDQapExFKfM8ahI/20f07aaace35649eefb27022a2f13556/2021_0517-catGotchaDay-AdobeStock_235571404.jpg?w=1000&h=750&fl=progressive&q=70&fm=jpg", start_time="Feb 14", end_time="Feb 14", location="My house", description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
         events = [
             event1,

@@ -20,7 +20,9 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:5555/check_session").then((response) => {
+    fetch("http://localhost:5555/check_session", {
+      credentials: 'include',
+    }).then((response) => {
       if (response.ok) {
         response.json().then(fetched_user => setUser(fetched_user));
       }
