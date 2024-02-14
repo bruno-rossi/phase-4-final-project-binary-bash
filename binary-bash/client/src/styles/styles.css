@@ -336,9 +336,32 @@ input[type="checkbox"] {
     width: 100%;
     padding: 10px;
 }
+.file-upload-input {
+    background-color: rgb(203, 178, 142);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.file-upload-input input {
+    background-color: rgb(203, 178, 142);
+}
+input::file-selector-button {
+    font-weight: bold;
+    color: #A58CB3;
+    padding: 0.5em;
+    border: thin solid grey;
+    border-radius: 3px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+input[type="file"]::file-selector-button:hover {
+    background-color: #A58CB3;
+    border: 1px solid rgb(203, 178, 142);
+    color: white;
+  }
 .create-event-form input, textarea {
-    background-color: #838BC2;
     color: #EAE7FA;
+    text-align: center;
 }
 .create-event-form textarea {
     resize: none;
@@ -346,26 +369,31 @@ input[type="checkbox"] {
 }
 ::placeholder {
     color: #EAE7FA;
+    text-align: center;
 }
+
 .create-event-form input[type="submit"] {
     background-color: #A58CB3;
     width: 200px;
 }
 .preview-image {
-    margin: 0;
+    margin: 0 0 15px 0;
     background-color:  rgba(165,140,179,1);
     height: max-content;
     padding: 10px;
     border-radius: 12px;
+    width: 100%;
 }
 .create-event-form h3 {
     margin: 20px 0 0 0;
 }
 input.date-picker {
-    max-width: 100%;
     background-color: #A58CB3;
     cursor: pointer;
     font-size: 20px;
+}
+.react-datepicker-wrapper {
+    width: 100%;
 }
 
 /* Dashboard */
@@ -475,7 +503,7 @@ input.date-picker {
 }
 .empty-event-card:hover{
     transform: scale(1.02);
-    transition: 0.3s;
+    transition: 0.3s ease-out;
     border-color: #D9A1A0;
     color: #D9A1A0;
 }
