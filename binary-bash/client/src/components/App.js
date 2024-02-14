@@ -10,6 +10,13 @@ import EventForm from './EventForm';
 function App() {
 
   const [ user, setUser ] = useState(null)
+  const [ isDarkMode, setIsDarkMode ] = useState(false)
+
+  function handleclick() {
+    setIsDarkMode(prevVal => !prevVal)
+  }
+
+  const themeclass = isDarkMode ? 'dark-theme' : 'light-theme';
 
   useEffect(() => {
     // auto-login
@@ -23,9 +30,10 @@ function App() {
   console.log(user)
 
   return (
-    <div className="App">
+    <div className={`App ${themeclass}`}>
         <NavBar user={user} setUser={setUser} />
         <Outlet context={{user: user, setUser: setUser}}/>
+        <button className='toggle-btn' onClick={handleclick}>{isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode'}</button>
         <Footer />
     </div>
   );
