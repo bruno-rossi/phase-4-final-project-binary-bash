@@ -37,7 +37,8 @@ function EventForm() {
         event.preventDefault();
 
         const formData = new FormData();
-        formData.append("user", user)
+        formData.append("user_id", user.id)
+        formData.append("username", user.username)
         formData.append("title", eventTitle);
         formData.append("image", eventImage);
         formData.append("location", eventLocation);
@@ -47,6 +48,7 @@ function EventForm() {
 
         fetch("http://127.0.0.1:5555/events", {
           method: "POST",
+        //   mode: 'no-cors',
           body: formData
         })
         .then(res => res.json())

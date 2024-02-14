@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function EventCard({event}) {
 
+    console.log(event.image)
     return (
         <Link to={`/events/${event.id}`} className="event-card">
             <div>
