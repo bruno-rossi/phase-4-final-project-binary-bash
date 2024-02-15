@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { useNavigate, useOutletContext} from "react-router-dom";
 import DatePicker from 'react-datepicker'
 
+
 function EventForm() {
 
     const [ newEvent, setNewEvent ] = useState([])
     const [ eventTitle, setEventTitle ] = useState("")
     const [ eventImage, setEventImage ] = useState("")
-    const [ eventStartTime, setEventStartTime ] = useState("")
-    const [ eventEndTime, setEventEndTime ] = useState("")
+    const [ eventStartTime, setEventStartTime ] = useState(new Date())
+    const [ eventEndTime, setEventEndTime ] = useState(null)
     const [ eventDescription, setEventDescription ] = useState("")
     const [ eventLocation, setEventLocation ] = useState("")
     const [ imagePreview, setImagePreview ] = useState("")
@@ -43,8 +44,8 @@ function EventForm() {
         formData.append("image", eventImage);
         formData.append("location", eventLocation);
         formData.append("description", eventDescription);
-        formData.append("start_time", eventStartTime);
-        formData.append("end_time", eventEndTime); 
+        formData.append("start_time", eventStartTime.toLocaleString());
+        formData.append("end_time", eventEndTime.toLocaleString()); 
         
 
         fetch("http://127.0.0.1:5555/events", {
@@ -90,15 +91,18 @@ function EventForm() {
                         accept="image/png, image/jpeg"
                         onChange={handleFileChange}>
                     </input>
+                    
 
                     <h3>Start Date</h3>
                     <DatePicker 
                     className="date-picker"
                     selected={eventStartTime} 
                     onChange={date => setEventStartTime(date)} 
-                    dateFormat="MMMM d YYYY, h:mm:ss a"
+                    dateFormat="MMMM d YYYY, h:mm a"
                     showTimeSelect
                     placeholderText="Start Date" 
+                    isClearable={true}
+                    minDate={eventStartTime}
                     required
                     />
 
@@ -107,9 +111,10 @@ function EventForm() {
                     className="date-picker"
                     selected={eventEndTime} 
                     onChange={date => setEventEndTime(date)} 
-                    dateFormat="MMMM d YYYY, h:mm:ss a"
+                    dateFormat="MMMM d YYYY, h:mm a"
                     showTimeSelect
                     placeholderText="End Time"
+                    isClearable={true}
                     required
                     />
                     
