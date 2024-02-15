@@ -66,7 +66,7 @@ function Signup() {
           onChange={event => setUserName(event.target.value)}
           required
           />
-          <p className={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</p>
+          <h5 className={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</h5>
 
           <label htmlFor = 'password'>* Password:</label>
           <input 
@@ -95,7 +95,7 @@ function Signup() {
         <hr />
 
         <div className='terms-conditions'>
-          <input type='checkbox' name='check'/>
+          {/* <input type='checkbox' name='check'/> */}
           <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
         </div>
         <p>Already have an account? <NavLink to = '/login'>Login</NavLink></p>
