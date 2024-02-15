@@ -627,3 +627,17 @@ input.date-picker {
     height: 200px;
     display: inline-block;
 }
+
+.rsvp-button {
+    border: solid 2px black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 100px;
+    background-color: #838BC2;
+}
+
+.rsvp-button:hover {
+    background-color: #D9A1A0;
+    cursor: pointer;
+}

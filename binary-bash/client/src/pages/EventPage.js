@@ -70,12 +70,11 @@ function EventPage() {
                 {guests ? guests.map(guest => <p key={guest}>{guest}</p>) : <p>There are no guests yet.</p>}
 
                 {/* <Link onClick={handleRSVP}><button>{rsvp ? "Not going" : "Going"}</button></Link> */}
-
-                {!user ? <Link onClick={handleRSVP}><button>Going</button></Link> : null}
+                {!user ? <Link onClick={handleRSVP}><button className="rsvp-button">Going</button></Link> : null}
                 {user && (user.username != host) ? 
-                    <Link onClick={handleRSVP}><button>{guests.includes(user.username) ? "Not going" : "Going"}</button></Link>
-                    : 
-                    null
+                <Link onClick={handleRSVP}><button className="rsvp-button">{guests.includes(user.username) ? "Not going" : "Going"}</button></Link>
+                : 
+                null
                 }
 
                 <hr />
