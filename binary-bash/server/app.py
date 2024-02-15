@@ -59,13 +59,20 @@ def all_events():
 
 
 # Event by id
-@app.route('/events/<int:id>')
+@app.route('/events/<int:id>', methods=['GET', 'DELETE'])
 def event_by_id(id):
     event = Event.query.filter(Event.id == id).first()
 
     if not event:
         return {"error": "Event not found"}, 404
-    return event.to_dict(), 200
+    
+    if request.method == 'GET':
+        return event.to_dict(), 200
+    elif request.method == "DELETE":
+        db.session.delete(event)
+        db.session.commit()
+        return {}, 200
+
 
 # Event guests by event id
 @app.route('/events/<int:id>/guests')

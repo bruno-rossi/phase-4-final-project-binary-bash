@@ -57,6 +57,16 @@ function EventPage() {
         }
     }
 
+    function handleDelete(){
+        fetch(`http://localhost:5555/events/${params.id}`, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+              navigate('/dashboard');
+        })
+    }
+
     return (
         <div className="event-page">
             <div className="event-page-container">
@@ -76,6 +86,8 @@ function EventPage() {
                 : 
                 null
                 }
+
+                {user && (user.username != host) ? null : <button onClick={handleDelete} className="delete-event-button">Delete Event</button>}
 
                 <hr />
 
