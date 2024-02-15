@@ -199,6 +199,7 @@ def get():
 
     if user_id:
         user = User.query.filter(User.id == session.get('user_id')).first()
+        
         return user.to_dict(), 200
     else:
         return {'message': '401: Not Authorized'}, 401
