@@ -446,7 +446,7 @@ input[type="file"]::file-selector-button:hover {
     margin: 0 0 15px 0;
     background-color:  rgba(165,140,179,1);
     height: max-content;
-    padding: 10px;
+    padding: 10px 0 30px 0;
     border-radius: 12px;
     width: 100%;
 }
