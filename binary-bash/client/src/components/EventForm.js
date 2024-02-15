@@ -46,7 +46,9 @@ function EventForm() {
         formData.append("start_time", eventStartTime);
         formData.append("end_time", eventEndTime); 
 
-        fetch("http://127.0.0.1:5555/events", {
+        const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5555";
+
+        fetch(`${apiUrl}/events`, {
           method: "POST",
         //   mode: 'no-cors',
           body: formData
