@@ -79,9 +79,21 @@
 .dark-theme .dashboard {
     background: #4a4e58;
 }
-
-
-
+.dark-theme .event-card {
+    background-color: rgb(139, 114, 152);
+    color: black;
+}
+.dark-theme .empty-event-card {
+    color: black;
+    background-color: #b48585;
+}
+.dark-theme .empty-event-card:hover {
+    color: white;
+    border-color: white;
+}
+.event-card:hover {
+    background-color: #b48585;
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -488,6 +500,11 @@ input.date-picker {
     margin: 0 auto;
     /* border: 1px solid; */
     /* background-color: white; */
+}
+.event-card:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+    background-color: #D9A1A0;
 }
 .dashboard-info a {
     color: #EAE7FA;
