@@ -14,6 +14,8 @@ function Login() {
   
   function handleSubmit(e) {
     e.preventDefault();
+    setError("");
+    
     fetch("http://localhost:5555/login", {
       method: "POST",
       headers: {

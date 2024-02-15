@@ -145,10 +145,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 0;
+    padding: 10px 0 80px 0;
 }
 .home-page h1 {
-    padding: 40px;
+    /* padding: 40px; */
     margin: 0;
     font-size: 100px;
     color: #EAE7FA;
@@ -279,7 +279,7 @@ body {
 }
 #submit-btn {
     margin: 30px auto;
-    padding: 10px 80px;
+    padding: 5px 80px;
     background-color: #D9A1A0;
     border: none;
     border-radius: 10px;
