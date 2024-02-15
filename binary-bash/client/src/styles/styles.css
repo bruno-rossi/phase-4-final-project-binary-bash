@@ -297,14 +297,14 @@ body {
     font-style: italic;
     padding: 20px 0;
 }
-#handle-form-error {
-    background-color: rgb(210, 49, 49);
-    color: white;
+.handle-form-error {
+    color: rgb(210, 49, 49);
+    /* color: white; */
     font-weight: 500;
     margin: 0;
     padding: 5px;
 }
-#handle-form-hidden {
+.handle-form-hidden {
     display: none;
     margin: 0;
     padding: 0;

@@ -8,6 +8,7 @@ function Login() {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate()
   
@@ -20,11 +21,13 @@ function Login() {
       },
       credentials: 'include',
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
+    })
+    .then((r) => {
       if (r.ok) {
-        r.json().then((user) => { setUser(user); navigate('/dashboard') });
+        r.json().then((user) => { setUser(user); setError(""); navigate('/dashboard') });
       }
-    });
+    })
+    .catch(new_error => {console.log((new_error.name)); setError(errors => [...errors, new_error.name])})
   }
 
   return (
@@ -52,6 +55,7 @@ function Login() {
           onChange={(event) => setPassword(event.target.value)}
           required
           />
+          {error ? <h5 className="handle-form-error" key={error}>{error}: Login failed. Please try again.</h5> : null }
 
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>
         </form>

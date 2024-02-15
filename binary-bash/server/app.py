@@ -148,18 +148,15 @@ def signup():
     username = request.get_json()['username']
     password = request.get_json()['password']
 
-    try:
-        if username and password:
-            new_user = User(username=username)
-            new_user.password_hash = password
-    except ValueError as e:
-        return {'error': str(e)}, 406
+    if username and password:
+        new_user = User(username=username)
+        new_user.password_hash = password
+        db.session.add(new_user)
+        db.session.commit()
+        
+        return new_user.to_dict(), 201
 
-    db.session.add(new_user)
-    db.session.commit()
-    return new_user.to_dict(), 201
-
-    # return {'error': '422 Unprocessable Entity'}, 422
+    return {'error': '422 Unprocessable Entity'}, 422
 
 # Log in
 @app.route('/login', methods=['POST'])
@@ -174,8 +171,8 @@ def login():
 
             session['user_id'] = user.id
             return user.to_dict(), 200
-
-        return {'error': '401 Unauthorized'}, 401
+        else:
+            return {'error': '401 Unauthorized'}, 401
 
 # Log out
 @app.route('/logout', methods=['DELETE'])

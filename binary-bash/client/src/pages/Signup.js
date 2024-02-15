@@ -66,7 +66,7 @@ function Signup() {
           onChange={event => setUserName(event.target.value)}
           required
           />
-          <p id={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</p>
+          <p className={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</p>
 
           <label htmlFor = 'password'>* Password:</label>
           <input 
@@ -88,7 +88,7 @@ function Signup() {
           required
           />
 
-          <p id={passwordValidate ? "handle-form-error" : 'handle-form-hidden'}>{passwordValidate}</p>
+          <h5 className={passwordValidate ? "handle-form-error" : 'handle-form-hidden'}>{passwordValidate}</h5>
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>
         </form>
 
