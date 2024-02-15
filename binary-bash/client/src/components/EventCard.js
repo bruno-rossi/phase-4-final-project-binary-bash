@@ -26,7 +26,6 @@ function EventCard({event}) {
                 <p>{event.start_time}</p>
                 <p>—</p>
                 <p>{event.end_time}</p>
-                {/* <Link to={`/events/${event.id}`} >Details</Link> */}
             </div>
         </Link>
     )
