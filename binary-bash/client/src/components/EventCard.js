@@ -23,7 +23,9 @@ function EventCard({event}) {
                 <h1>{event.title}</h1>
                 <p className="hosted-by">Hosted by {host}</p>
                 <p>{event.date}</p>
-                <p>{event.start_time} - {event.end_time}</p>
+                <p>{event.start_time}</p>
+                <p>—</p>
+                <p>{event.end_time}</p>
                 {/* <Link to={`/events/${event.id}`} >Details</Link> */}
             </div>
         </Link>
