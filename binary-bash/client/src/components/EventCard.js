@@ -19,7 +19,7 @@ function EventCard({event}) {
     return (
         <Link to={`/events/${event.id}`} className="event-card">
             <div>
-                <img src={`files/${event.image}`} alt={event.title} />
+                <img src={`image/${event.image}`} alt={event.title} />
                 <h1>{event.title}</h1>
                 <p className="hosted-by">Hosted by {host}</p>
                 <p>{event.date}</p>

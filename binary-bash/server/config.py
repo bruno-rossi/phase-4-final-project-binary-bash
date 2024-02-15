@@ -11,7 +11,7 @@ CORS(app, supports_credentials=True)
 app.secret_key = b'Y\xf1Xz\x00\xad|eQ\x80t \xca\x1a\x10K'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'client', 'public', 'files')
+app.config['UPLOAD_FOLDER'] = 'static/image'
 app.json.compact = False
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))

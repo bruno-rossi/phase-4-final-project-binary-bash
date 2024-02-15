@@ -61,7 +61,7 @@ function EventPage() {
         <div className="event-page">
             <div className="event-page-container">
                 <h1>{event.title}</h1>
-                <img className="event-page-image" src={`/files/${event.image}`} alt={event.title} />
+                <img className="event-page-image" src={`/image/${event.image}`} alt={event.title} />
                 <h3>Time: {event.start_time} - {event.end_time}</h3>
                 <p>Hosted by: {host}</p>
                 <h3>Where: {event.location}</h3>

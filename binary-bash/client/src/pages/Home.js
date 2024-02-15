@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 // import '../styles/home.css'
 
 function Home() {
 
+    const { user, setUser } = useOutletContext()
+
+    
     return (
         <>
          <div className="home-page">
@@ -24,7 +27,7 @@ function Home() {
                 </p>
             </div>
 
-            <NavLink to="/login"><button className="get-started-btn">Get Started!</button></NavLink>  
+            {!user ? <NavLink to="/login"><button className="get-started-btn">Get Started!</button></NavLink> : null }
             </div>
             
         </div>
