@@ -1,7 +1,6 @@
-/* body {
-    background: rgb(131,139,194);
-    background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
-} */
+* {
+    font-family: "Titillium Web", sans-serif;
+}
 
 .light-theme {
     background: rgb(131,139,194);
@@ -515,7 +514,7 @@ input.date-picker {
     display: block;
     text-decoration: none;
     background-color: #838BC2;
-    max-width: 10%;
+    /* max-width: 10%; */
     padding: 10px;
     margin: 2% auto;
     border: solid 2px black;
