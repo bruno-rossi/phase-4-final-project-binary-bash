@@ -645,3 +645,7 @@ input.date-picker {
     background-color: #D9A1A0;
     cursor: pointer;
 }
+
+.event-description {
+    width: 50%;
+}

@@ -14,39 +14,12 @@ function Dashboard() {
 
     useEffect(() => {
 
-        // if (!user) {
-        //     navigate('/login');
-        // } else {
-        //     fetch(`http://127.0.0.1:5555/users/${user.id}/events`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         const events_array = data.events.map(item => item.event)
-        //         setEvents(events_array);
-        // })
-        // }
-
         fetch(`http://127.0.0.1:5555/events`)
             .then(res => res.json())
             .then(data => {
                 // const events_array = data.map(item => item.event)
                 setEvents(data);
             })
-
-        // if (!user) {
-        //     fetch(`http://127.0.0.1:5555/events`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         const events_array = data.events.map(item => item.event)
-        //         setEvents(events_array);
-        // })
-        // } else {
-        //     fetch(`http://127.0.0.1:5555/users/${user.id}/events`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         const events_array = data.events.map(item => item.event)
-        //         setEvents(events_array);
-        // })
-        // }
         
     }, [])
     

@@ -54,7 +54,8 @@ if __name__ == '__main__':
             EventUser(user_id=3, event_id=1, type="guest"),
             EventUser(user_id=1, event_id=2, type="guest"),
             EventUser(user_id=2, event_id=2, type="host"),
-            EventUser(user_id=3, event_id=2, type="guest")
+            EventUser(user_id=3, event_id=2, type="guest"),
+            EventUser(user_id=3, event_id=3, type="host")
         ]
         db.session.add_all(events_users)
         db.session.commit()
