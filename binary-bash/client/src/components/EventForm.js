@@ -16,6 +16,7 @@ function EventForm() {
     const [ eventDescription, setEventDescription ] = useState("")
     const [ eventLocation, setEventLocation ] = useState("")
     const [ imagePreview, setImagePreview ] = useState("")
+    const [ confirmPost, setConfirmPost ] = useState('')
 
     const navigate = useNavigate();
     const { user, setUser } = useOutletContext();
@@ -55,8 +56,9 @@ function EventForm() {
         })
         .then(res => res.json())
         .then(event => {
+            setConfirmPost('Event Created!')
+            
             setNewEvent([...newEvent, event])
-            console.log(event);
             navigate('/dashboard');
         })
     }
@@ -138,6 +140,9 @@ function EventForm() {
                     </textarea>
                     <input type="submit" value="Let's bash!" id='submit-btn'></input>
                 </form>
+                <p className={confirmPost ? 'handle-form-error' : 'handle-form-hidden'} style={{display: 'inline-block', fontSize: '25px', color: 'green', marginTop: '10px'}}>
+                {confirmPost}
+                </p>
             </div>
         </div>   
     )
