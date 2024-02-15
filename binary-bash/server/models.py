@@ -30,11 +30,14 @@ class User(db.Model, SerializerMixin):
     serialize_rules = ['-events_users.user']
 
     # Validations
-    # @validates('username')
-    # def validate_username(self, key, new_username):
-    #     if new_username == self.username:
-    #         raise ValueError('username already exists')
-    #     return new_username
+    @validates('username')
+    def validate_username(self, key, new_username):
+        existing_user = User.query.filter(User.username == new_username).first()
+
+        if existing_user and existing_user.id != self.id:
+            raise ValueError('Username already exists')
+        return new_username
+
 
 
     def __repr__(self) -> str:

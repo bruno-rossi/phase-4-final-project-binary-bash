@@ -85,7 +85,6 @@
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 .App {
     text-align: center;
 }
@@ -127,11 +126,11 @@
 
 /* Home */
 .home-page {
-    height: 100vh;
+    height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 50px;
+    padding: 80px 0;
 }
 .home-page h1 {
     padding: 40px;
@@ -262,7 +261,6 @@
     background-color: #A58CB3;
     height: 40px;
     color: #EAE7FA;
-    width: 100%;
 }
 #submit-btn {
     margin: 30px auto;
@@ -283,14 +281,14 @@
     font-style: italic;
     padding: 20px 0;
 }
-#password-match-error {
+#handle-form-error {
     background-color: rgb(210, 49, 49);
     color: white;
     font-weight: 500;
     margin: 0;
     padding: 5px;
 }
-#password-match-hidden {
+#handle-form-hidden {
     display: none;
     margin: 0;
     padding: 0;
@@ -298,10 +296,11 @@
 
 /* Signup Form */
 .signup-container {
-    height: 100vh;
+    height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 80px 0;
 }
 .signup-form input {
     font-size: 20px;
@@ -345,11 +344,12 @@ input[type="checkbox"] {
 
 /* Login form */
 .login-container {
-    height: 100vh;
+    height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: none;
+    padding: 80px 0;
 }
 .login-form input {
     font-size: 20px;
@@ -366,7 +366,7 @@ input[type="checkbox"] {
 .create-event-form {
     /* border: 1px solid; */
     margin: auto;
-    width: 90%;
+    /* width: 90%; */
     height: max-content;
 }
 .go-back {
@@ -379,8 +379,19 @@ input[type="checkbox"] {
     border-radius: 5px;
     font-weight: 400;
 }
-.create-event-form label, input, textarea {
-    width: 50%;
+input {
+    width: 100%;
+    font-size: 16px;
+    margin: 0.5rem auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #A58CB3;
+    height: 40px;
+    color: #EAE7FA;
+    padding: 10px 0;
+}
+.create-event-form label, textarea {
+    /* width: 50%; */
     font-size: 16px;
     display: block;
     margin: 0.5rem auto;
@@ -389,7 +400,6 @@ input[type="checkbox"] {
     background-color: #A58CB3;
     height: 40px;
     color: #EAE7FA;
-    width: 100%;
     padding: 10px;
 }
 .file-upload-input {
@@ -456,7 +466,8 @@ input.date-picker {
 .dashboard {
     background: rgb(131,139,194);
     background: linear-gradient(90deg, rgba(131,139,194,1) 0%, rgba(165,140,179,1) 50%, rgba(131,139,194,1) 100%);
-    height: 100vh;
+    height: max-content;
+    padding: 0 0 80px 0;
 }
 .dashboard-info {
     /* background-color: white; */

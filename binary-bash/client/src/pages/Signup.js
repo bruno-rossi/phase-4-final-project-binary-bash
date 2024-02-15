@@ -12,6 +12,8 @@ function Signup() {
   const [password, setPassword] = useState('')
   const [confimedPass, setConfimedPass] = useState('')
   const [passwordValidate, setPasswordValidate] = useState('')
+  const [usernameValidate, setUsernameValidate] = useState('')
+
   const navigate = useNavigate()
 
   function handleSubmit(e) {
@@ -35,6 +37,7 @@ function Signup() {
         if (res.ok) {
           return res.json();
         }
+        setUsernameValidate('Username Already Exists')
         throw new Error ('Failed to create user')
       })
       .then(newUser => {
@@ -63,6 +66,7 @@ function Signup() {
           onChange={event => setUserName(event.target.value)}
           required
           />
+          <p id={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</p>
 
           <label htmlFor = 'password'>* Password:</label>
           <input 
@@ -84,7 +88,7 @@ function Signup() {
           required
           />
 
-          <p id={passwordValidate ? "password-match-error" : 'password-match-hidden'}>{passwordValidate}</p>
+          <p id={passwordValidate ? "handle-form-error" : 'handle-form-hidden'}>{passwordValidate}</p>
           <input type='submit' placeholder='Sign Up' id='submit-btn'/>
         </form>
 
