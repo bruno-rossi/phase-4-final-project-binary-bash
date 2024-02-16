@@ -87,19 +87,19 @@ function EventPage() {
                 null
                 }
 
-                {user && (user.username !== host) ? null : (user ? 
+                {user && (user.username == host) ? (user ? 
                 <button onClick={handleDelete} className="delete-event-button">
                     Delete Event
-                </button> : null)}
+                </button> : null) : null}
 
                 <hr />
 
-                <div className="photo-roll">
+                {/* <div className="photo-roll">
                     <h1>Photo Roll</h1>
                     <p>Add Your Photos here!</p>
                     <input type='file' />
                     <EventActivityPhotoCard />
-                </div>
+                </div> */}
                 
             </div>
         </div>
