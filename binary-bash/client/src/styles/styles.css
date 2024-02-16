@@ -642,7 +642,7 @@ h4 {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 20px;
-    width: 100px;
+    width: max-content;
     background-color: #838BC2;
 }
 
