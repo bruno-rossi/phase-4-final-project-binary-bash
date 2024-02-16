@@ -87,7 +87,10 @@ function EventPage() {
                 null
                 }
 
-                {user && (user.username != host) ? null : <button onClick={handleDelete} className="delete-event-button">Delete Event</button>}
+                {user && (user.username !== host) ? null : (user ? 
+                <button onClick={handleDelete} className="delete-event-button">
+                    Delete Event
+                </button> : null)}
 
                 <hr />
 
