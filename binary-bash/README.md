@@ -1,70 +1,83 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Phase 3 CLI+ORM Project: Python Typ-On
+Welcome to Python Typ-on, a command-line project that puts your typing skills to the test using Object-Oriented Python! In Python Typ-On, your challenge is to advance through the levels, typing the provided sentences with accuracy and speed.
 
-## Available Scripts
+The levels get progressively harder the longer you play.
 
-In the project directory, you can run:
+For each game you play, Python Typ-On shows the mistakes you made, and calculates your typing accuracy and speed.
 
-### `npm start`
+The games and stats are then saved to an SQLite database, allowing you to see your overall average.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Happy typing!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Table of contents:**
+- [1. Introduction](#introduction)
+- [2. Features](#features)
+- [3. Installation](#installation)
+- [4. Usage](#usage)
+- [5. Feedback and Support](#feedback)
+- [6. Skills learned](#skills)
 
-### `npm test`
+<a id="introduction"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1. Introduction
+Python Typ-On is a fun and interactive project built in Python. The command-line interface makes it easy to play.
 
-### `npm run build`
+[![image](./Python%20TypeOn%20v2.gif)]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<a id="features"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Features
+- **New Game:** When starting a new game, you will be prompted to enter your name. Then, you will enter a loop of games. In each game, you are given a sentence and expected to type it out as an input.
+- **Difference highlight:** After you enter an input sentence, the game calculates the difference between the provided sentence and your input. Correct characters are displayed in green, and mistakes are displayed in red. If you missed a key, it's displayed with a minus sign ("-"), and if you aded an extra key, it's displayed with a plus sign ("+").
+- **Typing accuracy:** The typing accuracy is calculated based on the ratio between the provided sentence and your input.
+- **Typing speed:** A timer starts when the sentence is shown, and ends when you finish your input. This is your typing time.
+- **Stats:** The Stats feature contains a leaderboard showcasing all the players along with their average typing accuracy, average typing speed, and the highest level played. The leaderboard is sorted by average accuracy in descending order (from highest to lowest).
+- **List all levels:** Prints a list of all available levels in the game.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a id="installation"></a>
 
-### `npm run eject`
+## 3. Installation
+To run Python Typ-On on your local machine, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone the repository from GitHub Repo URL.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the project directory.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install the required dependencies (SQLite support is included in Python's standard library, so no additional installations are needed): `pip install` or `pipenv install`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<a id="usage"></a>
 
-## Learn More
+## 4. Usage
+Once installed, you can start Python Typ-On from the command line: python cli.py
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The main menu will guide you through the available options.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a id="feedback"></a>
 
-### Code Splitting
+## 5. Feedback and Support
+We hope you enjoy the game! If you encounter any issues, have suggestions for improvement, or need assistance, please feel free to reach out.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Thank you for playing! Happy typing!
 
-### Analyzing the Bundle Size
+<a id="skills"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 6. Skills learned
 
-### Making a Progressive Web App
+Python and Object-Oriented Programming (OOP)
+- Building python classes with class properties and one-to-many relationships between classes:
+The game uses 3 classes, Player, Game, and Level. Player-Game and Level-Game are one-to-many relationships. Player-Level are many-to-many relationships.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Working with primary data types in Python: strings, integers, floats, lists, dictionaries.
+- Instance methods, and class methods, lambda functions.
+- Loops and conditionals, list comprehensions.
 
-### Advanced Configuration
+Databases (SQLite3) and Object-Relational Mapping (ORM):
+- Writing and executing SQL against a database
+- Create/Drop tables, insert/update/delete table rows.
+- Associated tables using foreign keys.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Using external libraries with my code:
+- Diff checker library: difflib library
+- Color printer: termcolor library
+- Timer: time library
