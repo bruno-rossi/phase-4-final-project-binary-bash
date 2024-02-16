@@ -73,7 +73,6 @@ def event_by_id(id):
         db.session.commit()
         return {}, 200
 
-
 # Event guests by event id
 @app.route('/events/<int:id>/guests')
 def event_guests(id):
@@ -155,15 +154,20 @@ def signup():
     username = request.get_json()['username']
     password = request.get_json()['password']
 
-    if username and password:
-        new_user = User(username=username)
-        new_user.password_hash = password
-        db.session.add(new_user)
-        db.session.commit()
-        
-        return new_user.to_dict(), 201
 
-    return {'error': '422 Unprocessable Entity'}, 422
+    try: 
+        if username and password:
+            new_user = User(username=username)
+            new_user.password_hash = password
+    except ValueError as e:
+       return {'error': str(e)}, 409
+       
+    db.session.add(new_user)
+    db.session.commit()
+        
+    return new_user.to_dict(), 201
+
+    # return {'error': '422 Unprocessable Entity'}, 422
 
 # Log in
 @app.route('/login', methods=['POST'])
