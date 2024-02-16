@@ -524,7 +524,7 @@ input.date-picker {
     width: 250px;
     height: 250px;
     /* background-color: #A58CB3; */
-    padding: 1%;
+    padding: 3%;
     font-size: 12px;
     display: flex;
     flex-direction: column;
@@ -571,7 +571,7 @@ h4 {
     width: 250px;
     height: 250px;
     /* background-color: #A58CB3; */
-    padding: 1%;
+    padding: 3%;
     font-size: 12px;
     display: flex;
     flex-direction: column;
@@ -642,13 +642,27 @@ h4 {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 20px;
-    width: 100px;
+    width: max-content;
     background-color: #838BC2;
 }
 
 .rsvp-button:hover {
     background-color: #D9A1A0;
     cursor: pointer;
+}
+
+.delete-event-button {
+    border: solid 2px black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    width: max-content;
+    background-color: rgb(195, 48, 48);
+    color:white;
+    cursor: pointer;
+}
+.delete-event-button:hover {
+    background-color: rgb(156, 44, 44);
 }
 
 .event-description {

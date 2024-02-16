@@ -59,13 +59,19 @@ def all_events():
 
 
 # Event by id
-@app.route('/events/<int:id>')
+@app.route('/events/<int:id>', methods=['GET', 'DELETE'])
 def event_by_id(id):
     event = Event.query.filter(Event.id == id).first()
 
     if not event:
         return {"error": "Event not found"}, 404
-    return event.to_dict(), 200
+    
+    if request.method == 'GET':
+        return event.to_dict(), 200
+    elif request.method == "DELETE":
+        db.session.delete(event)
+        db.session.commit()
+        return {}, 200
 
 # Event guests by event id
 @app.route('/events/<int:id>/guests')
@@ -148,15 +154,20 @@ def signup():
     username = request.get_json()['username']
     password = request.get_json()['password']
 
-    if username and password:
-        new_user = User(username=username)
-        new_user.password_hash = password
-        db.session.add(new_user)
-        db.session.commit()
-        
-        return new_user.to_dict(), 201
 
-    return {'error': '422 Unprocessable Entity'}, 422
+    try: 
+        if username and password:
+            new_user = User(username=username)
+            new_user.password_hash = password
+    except ValueError as e:
+       return {'error': str(e)}, 409
+       
+    db.session.add(new_user)
+    db.session.commit()
+        
+    return new_user.to_dict(), 201
+
+    # return {'error': '422 Unprocessable Entity'}, 422
 
 # Log in
 @app.route('/login', methods=['POST'])

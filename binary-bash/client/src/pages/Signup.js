@@ -20,8 +20,9 @@ function Signup() {
     e.preventDefault();
 
     if (password !== confimedPass) {
-      setPasswordValidate('Passwords Must Match')
-    } else fetch('http://localhost:5555/signup', {
+      setPasswordValidate('Passwords Must Match');
+    } else {
+      fetch('http://localhost:5555/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,19 +37,24 @@ function Signup() {
       .then((res) => {
         if (res.ok) {
           return res.json();
+        } else if (res.status === 409) {
+          setUsernameValidate('Username Already Exists');
+          throw new Error('Username Already Exists');
+        } else {
+          throw new Error('Failed to create user');
         }
-        setUsernameValidate('Username Already Exists')
-        throw new Error ('Failed to create user')
       })
       .then(newUser => {
-        setNewData([...newData, newUser])
-        console.log(newUser)
-        navigate('/login')
+        setNewData([...newData, newUser]);
+        console.log(newUser);
+        navigate('/login');
       })
       .catch(error => {
-        console.log(error)
-      }) 
+        console.log(error);
+      });
     }
+  }
+
 
   return (
     <div className="signup-container">
@@ -66,7 +72,7 @@ function Signup() {
           onChange={event => setUserName(event.target.value)}
           required
           />
-          <h5 className={usernameValidate ? 'handle-form-error' : 'handle-form-hidden'}>{usernameValidate}</h5>
+          <h5 className={usernameValidate ? "handle-form-error" : 'handle-form-hidden'}>{usernameValidate}</h5>
 
           <label htmlFor = 'password'>* Password:</label>
           <input 
@@ -95,7 +101,6 @@ function Signup() {
         <hr />
 
         <div className='terms-conditions'>
-          {/* <input type='checkbox' name='check'/> */}
           <label htmlFor = 'check'>By creating an account, you agree with our terms and conditions.</label>
         </div>
         <p>Already have an account? <NavLink to = '/login'>Login</NavLink></p>

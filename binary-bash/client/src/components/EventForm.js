@@ -56,7 +56,6 @@ function EventForm() {
         .then(res => res.json())
         .then(event => {
             setNewEvent([...newEvent, event])
-            console.log(event);
             navigate('/dashboard');
         })
     }
