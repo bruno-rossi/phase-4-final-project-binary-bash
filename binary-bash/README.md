@@ -20,12 +20,11 @@ The users and events are saved to a SQLite database. Let's bash!
 
 ## 2. Features
 
-- **Login/Signup:** description.
-- **Creating a new event:** After you enter an input sentence, the game calculates the difference between the provided sentence and your input. Correct characters are displayed in green, and mistakes are displayed in red. If you missed a key, it's displayed with a minus sign ("-"), and if you aded an extra key, it's displayed with a plus sign ("+").
-- **Guest rsvp:** desc.
-- **Deleting an event:** desc.
-- **:** desc
-- **List all levels:** desc.
+- **Login/Signup:** Users have the ability to sign up for a new account, or log into an existing account. The website uses cookies to automatically log in a user who has previously logged in.
+- **Creating a new event:** When a user creates an event, they are saved into the database as the "host" for that particular event. Event data can include a title and description, start and end date/time, a location, and a featured image.
+- **Guest rsvp:** Users can browse events in the dashboard and open any event to see its details. They can click a "Going" button to rsvp to an event, or "Not going" if they already rsvp'ed by changed their mind.
+- **Deleting an event:** Inclement weather? We get it, stuff happens! Hosts can delete an event if they need to cancel it.
+- **Light/Dark modes:** Users can select the light/dark mode based on their preference.
 
 <a id="skills"></a>
 
@@ -33,21 +32,16 @@ The users and events are saved to a SQLite database. Let's bash!
 
 Python and Object-Oriented Programming (OOP)
 
-- Building python classes with class properties and one-to-many relationships between classes:
-  The game uses 3 classes, Player, Game, and Level. Player-Game and Level-Game are one-to-many relationships. Player-Level are many-to-many relationships.
-
-- Working with primary data types in Python: strings, integers, floats, lists, dictionaries.
-- Instance methods, and class methods, lambda functions.
+- Building python classes with class properties, validations, and one-to-many relationships between classes:
+  The game uses 3 classes, Event, User, and EventUser. The EventUser class is used to create a relationship between users and events, creating a many-to-many relationship.
 - Loops and conditionals, list comprehensions.
 
 Databases (SQLite3) and Object-Relational Mapping (ORM):
-
-- Writing and executing SQL against a database
-- Create/Drop tables, insert/update/delete table rows.
+- Used Flask and SQLAlchemy to write and execute SQL against the database
 - Associated tables using foreign keys.
 
-Using external libraries with my code:
+Authentication and authorization:
+- Used hybrid properties to add a password property to the User class
+- Used bcrypt encrypt users' passwords 
 
-- Diff checker library: difflib library
-- Color printer: termcolor library
-- Timer: time library
+File upload functionality, allowing users to upload images to their events from their desktop.
